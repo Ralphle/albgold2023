@@ -1,0 +1,38 @@
+---------------------
+CORE Changes!
+---------------------
+
+
+---------------------
+FlexFormService
+---------------------
+
+Wegen Flexform incompatibilitäten mit PHP8.1 musste der FlexFormService geändert werden. 
+Ist NICHT update-sicher!
+
+/TN34/Albgold/Alb-Gold_2023/albgoldtypo3c/vendor/typo3/cms-core/Classes/Service/FlexFormService.php
+
+Zeile: 62
+--------------------- alt ---------------------
+$currentNode = &$currentNode[$valueKeyPart];
+----------------------------------------------
+
+--------------------- neu ---------------------
+$currentNode = &$currentNode[$valueKeyPart];
+----------------------------------------------
+if (!is_string($currentNode[$valueKeyPart])) {
+    $currentNode = &$currentNode[$valueKeyPart];
+} 
+ ----------------------------------------------
+ 
+ 
+ 
+ 
+----------------------------------------------
+ Extension myLeaflet
+ nominem-Link passt nicht mehr --> geändert
+vwndor/wsr/myleaflet/Classes/Controller/AjaxController.php
+----------------------------------------------
+ 114 	$apiURL = "https://nominatim.openstreetmap.org/search?q=$address,$country&format=json&limit=1";
+ 
+ 
