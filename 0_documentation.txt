@@ -35,4 +35,4 @@ vwndor/wsr/myleaflet/Classes/Controller/AjaxController.php
 ----------------------------------------------
  114 	$apiURL = "https://nominatim.openstreetmap.org/search?q=$address,$country&format=json&limit=1";
  
- 
+ Tests
