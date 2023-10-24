@@ -1,0 +1,44 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:if condition="{theme.socialmedia.channels}">
+    <div class="sociallinks">
+        <ul class="sociallinks-list">
+            <f:for each="{theme.socialmedia.channels}" key="channelKey" as="channelOptions">
+                <f:if condition="{channelOptions.url}">
+                    <li class="sociallinks-item sociallinks-item-{channelKey}" title="{channelOptions.label}">
+                        <a class="sociallinks-link sociallinks-link-{channelKey}" href="{channelOptions.url}" title="{channelOptions.label}" rel="noopener" target="_blank">
+                            <span class="sociallinks-link-icon {channelKey}" aria-hidden="true">
+								
+								<f:if condition="{channelKey} == 'facebook'">
+									<f:then>
+										<bk2k:inlineSvg src="EXT:albgold/Resources/Public/Images/Icons/Albgoldicons/albgold-facebook.svg" height="28" />
+									</f:then>
+									<f:else if="{channelKey} == 'twitter'">										
+										<bk2k:inlineSvg src="EXT:albgold/Resources/Public/Images/Icons/Albgoldicons/albgold-twitter.svg" height="28" />
+									</f:else>
+									<f:else if="{channelKey} == 'pinterest'">										
+										<bk2k:inlineSvg src="EXT:albgold/Resources/Public/Images/Icons/Albgoldicons/albgold-pinterest.svg" height="28" />
+									</f:else>
+									<f:else if="{channelKey} == 'instagram'">										
+										<bk2k:inlineSvg src="EXT:albgold/Resources/Public/Images/Icons/Albgoldicons/albgold-instagram.svg" height="28" />
+									</f:else>
+									<f:else if="{channelKey} == 'email'">										
+										<bk2k:inlineSvg src="EXT:albgold/Resources/Public/Images/Icons/Albgoldicons/albgold-email.svg" height="28" />
+									</f:else>
+									<f:else if="{channelKey} == 'youtube'">										
+										<bk2k:inlineSvg src="EXT:albgold/Resources/Public/Images/Icons/Albgoldicons/albgold-youtube.svg" height="28" />
+									</f:else>
+									<f:else>
+										<bk2k:inlineSvg src="EXT:albgold/Resources/Public/Images/Icons/Albgoldicons/albgold-external-link.svg" height="28" />
+									</f:else>
+								</f:if>
+								
+							</span>
+                            <span class="sociallinks-link-label">{channelOptions.label}</span>
+                        </a>
+                    </li>
+                </f:if>
+            </f:for>
+        </ul>
+    </div>
+</f:if>
+</html>

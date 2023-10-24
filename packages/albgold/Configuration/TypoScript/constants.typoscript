@@ -1,0 +1,304 @@
+######################
+#### DEPENDENCIES ####
+######################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/constants.typoscript">
+
+
+
+config.headerComment = Based on the TYPO3 Bootstrap Package by Benjamin Kott - https://www.bootstrap-package.com | Integration: Ralph Pfeifer - TN34
+
+
+
+
+############
+### PAGE ###
+############
+page {
+    logo {
+        file = EXT:albgold/Resources/Public/Images/Logos/Alb-Gold-Logo-grau.svg
+        fileInverted =  EXT:albgold/Resources/Public/Images/Logos/Alb-Gold-Logo-grau.svg
+        height = 52
+        width = 192
+        alt =  Alb•Gold
+        linktitle = Homepage
+    }
+    favicon {
+        file = EXT:albgold/Resources/Public/Icons/favicon.ico
+    }
+    fluidtemplate {
+        layoutRootPath = EXT:albgold/Resources/Private/Layouts/Page/
+        partialRootPath = EXT:albgold/Resources/Private/Partials/Page/
+        templateRootPath = EXT:albgold/Resources/Private/Templates/Page/
+    }
+	
+	
+	
+	theme {
+		name = albgold
+		
+		homepageuid = 2
+		
+		navigation.icon.enable = 0
+		navigation.dropdown.icon.enable = 0
+		navigation.type = top
+		navigation.style = default-transition
+				
+		subnavigation.icon.enable = 0
+		
+		googleFont.enable = 0
+		
+		footernavigation.enable = 1
+		footernavigation.levels = 1
+		footernavigation.icon.enable = 0
+		footernavigation.navigationValue = 48,486,50,47
+		
+		copyright.enable = 1
+		copyright.text = ALB-GOLD Teigwaren 2023  |  Alle Rechte vorbehalten
+		cookieconsent.enable = 0
+		
+		meta.enable = 1
+		meta.navigationValue = 18
+		meta.navigationType = directory
+		
+		newsletter.enable = 1
+		
+		language.enable = 0
+		footercontent.enable = 1
+		
+		servicenavigation {
+			enable = 1
+			navigationValue = 11
+			includeNotInMenu = 1
+			icon.enable = 1
+			level = 1
+			navigationType = directory
+		}
+		
+		contact.enable = 0
+		contact {
+			data.title = ALB-GOLD Teigwaren
+			data.addressLine1 = Klaus-Freidler-Straße 1
+			data.addressLine2 = D-72818 Trochtelfingen
+			data.addressLine3 = DE-ÖKO-006
+			data.country = DE
+			data.phone = (0 71 24) 92 91-155
+			#data.fax = 
+			data.email = kundenzentrum@alb-gold.de 
+			data.www = albgold.de
+		}
+		
+		
+		socialmedia {
+			enable = 0
+			floating.enable = 1
+			channels {
+				facebook.url = https://www.facebook.com/albgold.teigwaren/
+				#twitter.url = https://twitter.com/alb_gold
+				instagram.url = https://www.instagram.com/alb_gold_teigwaren/
+				#youtube.url = https://www.youtube.com/user/AlbGoldNudeln
+				#pinterest.url = https://www.pinterest.de/albgoldteigwaren/
+				pinterest.label = Pinterest
+				email.url = /kontakt/
+				email.label = E-Mail
+			}
+		}
+	}
+}
+
+# - - - - - - - - - - - 
+# No breadcrumb here 
+# - - - - - - - - - - - 
+[traverse(page, "uid") in [96,683]]
+page.theme.breadcrumb.enable = 0
+[end]
+
+
+
+
+
+
+# - - - - - - - - - - - 
+# Defaults contents 
+# - - - - - - - - - - - 
+
+styles {
+	content {
+		image.lazyLoading = lazy
+		textmedia.linkWrap.lightboxCssClass = lightbox
+		textmedia.linkWrap.height = auto
+		textmedia.linkWrap.width = 1280
+	}
+}
+
+
+
+
+
+
+##################
+### EXTENSIONS ###
+##################
+
+
+
+plugin.bootstrap_package {
+    view {
+        layoutRootPath = EXT:albgold/Resources/Private/Layouts/
+        partialRootPath = EXT:albgold/Resources/Private/Partials/
+        templateRootPath = EXT:albgold/Resources/Private/Templates/
+    }
+}
+
+
+########################
+### CONTENT ELEMENTS ###
+########################
+plugin.bootstrap_package_contentelements {
+    view {
+        layoutRootPath = EXT:albgold/Resources/Private/Layouts/ContentElements/
+        partialRootPath = EXT:albgold/Resources/Private/Partials/ContentElements/
+        templateRootPath = EXT:albgold/Resources/Private/Templates/ContentElements/
+    }
+	
+	uploads {
+		preview {
+			height = 300
+			width = 215
+		}
+	}
+		
+}
+
+
+################################
+### BOOTSTRAP SCSS CONSTANTS ###
+################################
+plugin.bootstrap_package.settings.scss {
+    primary = #CFBB7E
+	secondary = #4C263F
+	tertiary = #4E87A0;
+	quaternary = #77C5D5;
+	default = #CFBB7E;
+	success = #789D4A;
+	info = #4E87A0;
+	warning = #EFAA22
+	danger = #CD545B
+	light = #D9D9D6
+	dark = #878787
+	darker = #707070
+	link-color = #878787;
+	
+	blue = #4E87A0;
+	blue-light = #77C5D5;
+	red = #CD545B;
+	orange = #EFAA22;
+	yellow = #FFD229;
+	aubergine = #4C263F;
+	gold = #CFBB7E;
+	green = #A9C47F;
+	green-light = #DBDE70;
+	green-dark = #789D4A;
+	
+	primary-color = #CFBB7E
+	secondary-color = #4C263F
+	tertiary-color  = #4E87A0;
+	quaternary-color  = #77C5D5;
+}
+
+
+
+
+
+# - - - - - - - 
+# News
+# - - - - - - - 
+plugin.tx_news {
+    view {
+        layoutRootPath = EXT:albgold/Resources/Private/Layouts/News/
+        partialRootPath = EXT:albgold/Resources/Private/Partials/News/
+        templateRootPath = EXT:albgold/Resources/Private/Templates/News/
+    }
+}
+
+
+
+
+
+
+
+# - - - - - - - 
+# Indexed Search
+# - - - - - - - 
+plugin.tx_indexedsearch {
+	view.templateRootPaths = EXT:albgold/Resources/Private/Templates/IndexedSearch/
+	view.partialsRootPaths = EXT:albgold/Resources/Private/Partials/IndexedSearch/
+
+	settings {
+		targetPid = 30
+		rootPidList = 2
+	}
+}
+
+
+
+
+
+
+
+# - - - - - - - 
+# Powermail
+# - - - - - - - 
+plugin.tx_powermail {
+	settings {
+		receiver.default.senderName = ALB-GOLD
+		senderEmail = info@alb-gold.de
+
+		sender.overwrite.senderName = Alb-Gold
+		sender.overwrite.senderEmail = info@alb-gold.de
+		
+		reciever.overwrite.senderName = Alb-Gold
+		reciever.overwrite.senderEmail = info@alb-gold.de
+		}
+	view {
+		templateRootPath = EXT:albgold/Resources/Private/Templates/Powermail/
+		partialRootPath = EXT:albgold/Resources/Private/Partials/Powermail/
+		layoutRootPath = EXT:albgold/Resources/Private/Layouts/Powermail/
+	}
+}
+
+
+
+
+# - - - - - - - - - - - - - - - -
+# MyLeaflet
+# - - - - - - - - - - - - - - - -
+plugin.tx_myleaflet {
+	persistence.storagePid = 68
+	settings {
+		resultPageId = 49
+		detailsPageId = 49
+		defaultLanguageUid = 
+		enableMarkerClusterer = 1
+		singleViewUid = 1
+		resultLimit = 2500
+		#defaultIcon = 
+		markerIconWidth = 24
+		markerIconHeight = 40
+		initialMapCoordinates = 48.32742200,9.23999800
+	}
+	view {
+		includejQueryCore = 0
+		templateRootPath = EXT:albgold/Resources/Private/Templates/Myleaflet/
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+

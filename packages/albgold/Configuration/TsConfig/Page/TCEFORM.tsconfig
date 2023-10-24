@@ -1,0 +1,421 @@
+#
+# TCEFORM
+#
+
+
+
+# - - - - - - - - - - - - - - - - - #
+# Hide Content Eleemnts 
+# - - - - - - - - - - - - - - - - - #
+
+TCEFORM.tt_content.CType {
+     removeItems := addToList(container_1_columns,container_2_columns,container_3_columns,container_4_columns,container_2_columns_right,container_2_columns_left,bullets,table,form_formframework,timeline)
+}
+
+
+
+
+TCEFORM {
+
+    pages {
+		layout.addItems {
+			#10 = Seite ohne Navigation 
+			#100 = Weißer Hintergrund
+		}
+	}
+	
+	
+	
+    tt_content {
+	
+		space_after_class {
+			addItems.nomargin = Keiner
+		}
+		space_before_class {
+			addItems.nomargin = Keiner
+		}
+		
+		header_class {
+			addItems {
+				sectiontitle = Section-Titel
+			}
+		}
+	
+	
+		header_layout {
+			removeItems = 6
+			addItems {
+				#7 = Überschrift mit blauem HG
+			}
+		}
+		
+		
+		background_color_class {
+			altLabels {
+				primary = Gold
+				secondary = Aubergine
+				tertiary = Blau
+				quaternary = Hellblau
+				light = Hellgrau
+				dark = Dunkelgrau
+			}
+			addItems {
+				grey = Mittelgrau
+				red = Rot
+				orange = Orange
+				yellow = Gelb
+				green = Grün
+				green-light = Hellgrün
+				green-dark = Dunkelgrün
+			}				
+	
+		}
+		
+		
+		header_position {
+			types {
+				textpic {
+					addItems {			
+						centertop = Über dem Bild - Mitte
+					}
+				}
+				textmedia {
+					addItems {			
+						centertop = Über dem Bild - Mitte
+					}
+				}
+			}
+		}
+		
+		.frame_layout {
+			types {
+				texticon {
+					addItems {			
+						 smallpageheader = Schmaler Seitentitel
+					}
+				}
+			}
+		}
+		
+		
+		layout {	
+			addItems {			
+				#nomargin = Keine Abstände
+				#topnomargin = Kein Abstand oben
+				#bottomnomargin = Kein Abstand unten
+			}
+
+			types {
+				carousel {
+					addItems {			
+						#100 = Höher
+						#101 = Schmal
+					}
+				}
+				textpic {
+					addItems {			
+						100 = Ganze Breite - Inhalt Seitenbreite
+						101 = Ganze Breite - Inhalt weit
+					}
+				}
+				textmedia {
+					addItems {			
+						100 = Ganze Breite - Inhalt Seitenbreite
+						101 = Ganze Breite - Inhalt weit
+					}
+				}
+				ce_columns2 {
+					addItems {			
+						100 = Ganze Breite - Inhalt Seitenbreite
+						101 = Ganze Breite - Inhalt weit
+					}
+				}
+				ce_columns3 {
+					addItems {			
+						100 = Ganze Breite - Inhalt Seitenbreite
+						101 = Ganze Breite - Inhalt weit
+					}
+				}
+				ce_columns4 {
+					addItems {			
+						100 = Ganze Breite - Inhalt Seitenbreite
+						101 = Ganze Breite - Inhalt weit
+					}
+				}
+				
+			}
+		}
+	}
+	
+	
+	tx_bootstrappackage_carousel_item {
+		layout {
+			removeItems = tertiary, quaternary, dark, light
+			addItems {
+		
+			}
+			altLabels {
+				secondary = Textblock rechts
+				custom = Textblock links
+				primary = Textblock mittig
+			}
+		}
+		header_layout {
+			addItems {
+				5 = Verborgen
+				}
+			}
+	}
+	
+	
+	
+	
+	
+	tx_bootstrappackage_card_group_item {
+		link_class {
+			label = Aussehen
+			removeItems = danger, warning, info, success, tertiary, quaternary, outline-danger, outline-warning, outline-info, outline-success, outline-tertiary, outline-quaternary
+			altLabels {
+				default = Grau
+				primary = Gold
+				secondary = Aubergine
+				outline-default = Outline-Grau
+				outline-primary = Outline-Gold
+				outline-secondary = Outline-Aubergine
+			}
+		}
+	}
+				
+		
+} # TCEFORM - End
+
+
+
+
+
+
+TCEFORM.tt_content {
+	#rowClasses.rowCustom.default = frame-container
+}
+
+
+
+
+
+# - - - - - - - - - - - - - - - - - #
+# Remove Content-Eleemnts 
+# - - - - - - - - - - - - - - - - - #
+
+mod {
+  wizards {
+    newContentElement {
+      wizardItems {
+        common.show := removeFromList(timeline,menu_abstract,bullets,table,menu_thumbnail_list,menu_thumbnail_dir,menu_card_list,menu_card_dir,csv)
+      }
+	 }
+  }
+}
+
+TCEFORM {
+	tt_content {
+		CType {
+			removeItems = timeline,menu_abstract,bullets,table,menu_thumbnail_list,menu_thumbnail_dir,menu_card_list,menu_card_dir,csv
+    	}
+	}
+}
+
+
+
+
+
+
+# - - - - - - - - - - - - - - - - - #
+# Content Spaltenelemente 
+# - - - - - - - - - - - - - - - - - #
+
+
+
+TCEFORM.tt_content.pi_flexform {
+
+	 ce_columns2.sGeneral.columns\.1\.width {
+		#addItems.123222552 = slot
+	}
+
+    ce_columns2.sCustom {		
+		row\.class {
+			#addItems.123222552 = slot
+			#altLabels.1 = Slot2
+			
+		}
+	}
+	
+	ce_accordion.sDEF {
+		style {
+			removeItems = accordion-v1, pp-accordion-primary, pp-accordion-secondary, pp-accordion-complementary, pp-accordion-custom
+		}
+		headerLayout {
+			removeItems = h1
+		}
+	}
+	
+	ce_tabs.sDEF {
+		style {
+			removeItems = tab-v1, pp-tabs-primary, pp-tabs-secondary, pp-tabs-complementary, pp-tabs-custom
+			addItems {
+				tabs-nav-blue = Blaue Reiter
+			}
+		}
+		headerLayout {
+			removeItems = h1
+		}
+	}
+	
+	
+	icon_group.sDEF {
+		
+		icon_position {
+			addItems {
+				oboveround = Rundes Icon oben
+				belowround = Rundes Icon unten
+			}
+		}
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+# - - - - - - - - - - - - - - - - - #
+# Frame Calasses 
+# - - - - - - - - - - - - - - - - - #
+
+
+TCEFORM.tt_content {
+   frame_class {
+		addItems {
+			#rounded = Abgerundet
+	 }
+	}
+	frame_options {
+		#removeItems =
+		addItems {
+		  roundedtopleft = Oben Links abgerundet
+		  roundedtopright = Oben Rechts abgerundet
+		  roundedbottomleft = Unten Links abgerundet
+		  roundedbottomright = Unten Rechts abgerundet
+		  paddingtop = Mehr Abstand oben
+		  paddingbottom = Mehr Abstand unten
+		  paddingleft= Mehr Abstand links
+		  paddingright = Mehr Abstand rechts
+		 }
+		 
+		 types.textpic {
+		 	addItems {
+				smallimages = Halbes Bild
+			 	smallerimages = Kleineres Bild
+			}
+		}
+		
+		 types.image {
+		 	addItems {
+				smallimages = Halbes Bild
+			 	smallerimages = Kleineres Bild
+			}
+		}
+		
+		 types.textmedia {
+		 	addItems {
+				smallimages = Halbes Bild
+			 	smallerimages = Kleineres Bild
+			}
+		}
+	 }
+}
+
+
+
+
+
+
+
+
+
+# - - - - - - - - - - - - - - - - - #
+# Powermail 
+# - - - - - - - - - - - - - - - - - #
+
+TCEFORM {
+        tx_powermail_domain_model_form {
+                css {
+                    removeItems = layout1, layout2, layout3
+                        addItems {
+                            default = Standardform
+                     }
+                }
+        }
+        tx_powermail_domain_model_page {
+			css {
+				removeItems = layout1, layout2, layout3
+				addItems {
+                     default = Standardform
+				}
+			}
+		}
+        tx_powermail_domain_model_field {
+			css {
+                 removeItems = layout1, layout2, layout3, default
+                        addItems {
+								titlefield = Formular Titel
+                                #default = Standardformularfeld
+							    #thirdfield = 	1/3 Feld
+								#twothirdfield = 2/3 Feld
+								halffield = 	1/2 Feld
+								halffieldlast =  letztes 1/2 Feld
+								privacytext = Text Datenschutz
+								privacyfield = Feld Datenschutz								
+                        }
+                }
+		}
+}
+
+
+TCEFORM {
+	tx_powermail_domain_model_mails {
+		# sender_ip.disabled = 1
+	}
+}
+
+
+
+
+# - - - - - - - - - - - - - - - - - #
+# News 
+# - - - - - - - - - - - - - - - - - #
+
+TCAdefaults {
+   sys_file_reference {
+      showinpreview = 1
+   }
+}
+
+tx_news.templateLayouts {
+	10 = Veranstaltungen 
+	11 = Veranstaltungen 2-spaltig
+	12 = News-Suche
+	13 = Veranstaltungs-Suche
+}
+
+
+
+
+
+
+
+
+

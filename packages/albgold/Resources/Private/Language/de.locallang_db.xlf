@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" date="2023-07-03UTC14:52:400">
+        <header>
+            <authorName>Rlaph Pfeifer</authorName>
+            <authorEmail>ralph.pfeifer@tn34.de</authorEmail>
+        </header>
+        <body>
+			<trans-unit id="tx_event_domain_model_location.title">
+				<source>Event Titles</source>
+				<target>Veranstaltungsaort Bezeichnung</target>
+			</trans-unit>
+			<trans-unit id="tx_event_domain_model_location.label">
+				<source>Event Locations</source>
+				<target>Veranstaltungsort</target>
+			</trans-unit>
+			<trans-unit id="tx_event_domain_model_location.locationaddress">
+				<source>Event Address</source>
+				<target>Veranstaltungsadresse</target>
+			</trans-unit>
+			<trans-unit id="tx_news_domain_model_news.eventtime">
+				<source>Event Time</source>
+				<target>Veranstaltungszeit</target>
+			</trans-unit>
+			<trans-unit id="tx_news_domain_model_news.booked">
+				<source>Fully Booked</source>
+				<target>Ausgebucht</target>
+			</trans-unit>
+			<trans-unit id="tx_news_domain_model_news.highlight">
+				<source>Highlight - show on startpage</source>
+				<target>Als Highlight anzeigen</target>
+			</trans-unit>
+			<trans-unit id="tx_news_domain_model_news.publishalsoin">
+				<source>Show also in brand page</source>
+				<target>Auch auf Markenseite anzeigen</target>
+			</trans-unit>
+			<trans-unit id="tx_news_domain_model_news.donotpublishin">
+				<source>Dont publish in</source>
+				<target>Nicht anzeigen in</target>
+			</trans-unit>
+			<trans-unit id="tx_news_domain_model_news.price">
+				<source>Price</source>
+				<target>Preis</target>
+			</trans-unit>
+			<trans-unit id="tx_news_domain_model_news.pricecaption">
+				<source>Caption for Price</source>
+				<target>Erklärung Preis</target>
+			</trans-unit>
+			<trans-unit id="tx_news_domain_model_news.starttimeevent">
+				<source>Event Start-Date</source>
+				<target>Mehrtägige Events: Event Startdatum</target>
+			</trans-unit>
+			<trans-unit id="tx_news_domain_model_news.endtimeevent">
+				<source>Event End-Date</source>
+				<target>Mehrtägige Events: Event Enddatum</target>
+			</trans-unit>
+			<trans-unit id="tx_news_domain_model_news.is_teaser">
+				<source>Show it in teaser</source>
+				<target>Darstellung im Teaser</target>
+			</trans-unit>
+			<trans-unit id="tx_news_domain_model_news.extendedlinks">
+				<source>Extendend Links Links</source>
+				<target>Erweiterte Links</target>
+			</trans-unit>
+			<trans-unit id="tx_bootstrappackage_icon_group_item.iconcolor">
+				<source>Icon-Color</source>
+				<target>Icon Farbe</target>
+			</trans-unit>
+			<trans-unit id="albgold.color.primary">
+				<source>Gold</source>
+				<target>Gold</target>
+			</trans-unit>
+			<trans-unit id="albgold.color.gold">
+				<source>Gold</source>
+				<target>Gold</target>
+			</trans-unit>
+			<trans-unit id="albgold.color.secondary">
+				<source>Aubergine</source>
+				<target>Aubergine</target>
+			</trans-unit>
+			<trans-unit id="albgold.color.tertiary">
+				<source>Blue</source>
+				<target>Blau</target>
+			</trans-unit>
+			<trans-unit id="albgold.color.quarternary">
+				<source>Light Blue</source>
+				<target>Hellblau</target>
+			</trans-unit>
+			<trans-unit id="albgold.color.red">
+				<source>Red</source>
+				<target>Rot</target>
+			</trans-unit>
+			<trans-unit id="albgold.color.orange">
+				<source>Orange</source>
+				<target>Orange</target>
+			</trans-unit>
+			<trans-unit id="albgold.color.yellow">
+				<source>Yellow</source>
+				<target>Gelb</target>
+			</trans-unit>
+			<trans-unit id="albgold.color.aubergine">
+				<source>Aubergine</source>
+				<target>Aubergine</target>
+			</trans-unit>
+			<trans-unit id="albgold.color.green">
+				<source>Green</source>
+				<target>Grün</target>
+			</trans-unit>
+			<trans-unit id="albgold.color.green-light">
+				<source>Light Green</source>
+				<target>Hellgrün</target>
+			</trans-unit>
+			<trans-unit id="albgold.color.green-dark">
+				<source>Dark Green</source>
+				<target>Dunkelgrün</target>
+			</trans-unit>
+        </body>
+    </file>
+</xliff>
+
+
+
+
+
+
+

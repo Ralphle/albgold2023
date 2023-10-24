@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" date="2023-07-03UTC14:52:400">
+        <header>
+            <authorName>Ralph Pfeifer</authorName>
+            <authorEmail>ralph.pfeifer@tn34.de</authorEmail>
+        </header>
+        <body>
+			<trans-unit id="tx_event_domain_model_location.title">
+				<source>Event Titles</source>
+			</trans-unit>
+			<trans-unit id="tx_event_domain_model_location.label">
+				<source>Event Locations</source>
+			</trans-unit>
+			<trans-unit id="tx_event_domain_model_location.locationaddress">
+				<source>Event Address</source>
+			</trans-unit>
+			<trans-unit id="tx_news_domain_model_news.eventtime">
+				<source>Event Time</source>
+			</trans-unit>
+			<trans-unit id="tx_news_domain_model_news.booked">
+				<source>Fully Booked</source>
+			</trans-unit>
+			<trans-unit id="tx_news_domain_model_news.highlight">
+				<source>Highlight - show on startpage</source>
+			</trans-unit>
+			<trans-unit id="tx_news_domain_model_news.publishalsoin">
+				<source>Show also in brand page</source>
+			</trans-unit>
+			<trans-unit id="tx_news_domain_model_news.donotpublishin">
+				<source>Dont publish in</source>
+			</trans-unit>
+			<trans-unit id="tx_news_domain_model_news.price">
+				<source>Price</source>
+			</trans-unit>
+			<trans-unit id="tx_news_domain_model_news.pricecaption">
+				<source>Caption for Price</source>
+			</trans-unit>
+			<trans-unit id="tx_news_domain_model_news.starttimeevent">
+				<source>Event Start-Date</source>
+			</trans-unit>
+			<trans-unit id="tx_news_domain_model_news.endtimeevent">
+				<source>Event End-Date</source>
+			</trans-unit>
+			<trans-unit id="tx_news_domain_model_news.is_teaser">
+				<source>Show it in teaser</source>
+			</trans-unit>
+			<trans-unit id="tx_news_domain_model_news.extendedlinks">
+				<source>Extended Links</source>
+			</trans-unit>
+			<trans-unit id="tx_bootstrappackage_icon_group_item.iconcolor">
+				<source>Icon-Color</source>
+			</trans-unit>
+			<trans-unit id="albgold.color.primary">
+				<source>Gold</source>
+			</trans-unit>
+			<trans-unit id="albgold.color.gold">
+				<source>Gold</source>
+			</trans-unit>
+			<trans-unit id="albgold.color.secondary">
+				<source>Aubergine</source>
+			</trans-unit>
+			<trans-unit id="albgold.color.tertiary">
+				<source>Blue</source>
+			</trans-unit>
+			<trans-unit id="albgold.color.quarternary">
+				<source>Light Blue</source>
+			</trans-unit>
+			<trans-unit id="albgold.color.red">
+				<source>Red</source>
+			</trans-unit>
+			<trans-unit id="albgold.color.orange">
+				<source>Orange</source>
+			</trans-unit>
+			<trans-unit id="albgold.color.yellow">
+				<source>Yellow</source>
+			</trans-unit>
+			<trans-unit id="albgold.color.aubergine">
+				<source>Aubergine</source>
+			</trans-unit>
+			<trans-unit id="albgold.color.green">
+				<source>Green</source>
+			</trans-unit>
+			<trans-unit id="albgold.color.green-light">
+				<source>Light Green</source>
+			</trans-unit>
+			<trans-unit id="albgold.color.green-dark">
+				<source>Dark Green</source>
+			</trans-unit>
+			
+        </body>
+    </file>
+</xliff>

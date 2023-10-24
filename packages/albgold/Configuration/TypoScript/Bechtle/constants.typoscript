@@ -1,0 +1,77 @@
+######################
+#### BECHTLE      ####
+######################
+
+
+############
+### PAGE ###
+############
+page {
+rootPage = 
+    logo {
+        file = EXT:albgold/Resources/Public/Images/Logos/logo-bechtle.svg
+        fileInverted =  EXT:albgold/Resources/Public/Images/Logos/logo-bechtle.svg
+        height = 130
+        width = 260
+        alt =  Bechtle Teigwaren Logo
+        linktitle = Homepage
+    }
+    favicon {
+        file = EXT:albgold/Resources/Public/Icons/favicon.ico
+    }
+	
+	theme {
+		name = bechtle
+		homepageuid = 27
+		newsletter.enable = 0
+		footercontent.enable = 0
+		breadcrumb.enable = 0
+		
+		servicenavigation {
+			enable = 1
+			navigationValue = 81
+		}
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+
+# - - - - - - - 
+# Indexed Search
+# - - - - - - - 
+plugin.tx_indexedsearch {
+	#view.templateRootPaths = EXT:albgold/Resources/Private/Templates/IndexedSearch/
+	#view.partialsRootPaths = EXT:albgold/Resources/Private/Partials/IndexedSearch/
+	#view.partialRootPaths.10 =
+	settings {
+		targetPid = 203
+		rootPidList = 27
+	}
+}
+
+
+
+
+################################
+### BOOTSTRAP SCSS CONSTANTS ###
+################################
+plugin.bootstrap_package.settings.scss {
+    primary = #000000
+	primary-color = #000000
+	secondary = #FF0000
+	secondary-color = #FF0000
+	tertiary = #FFF000
+	tertiary-color = #FFF000
+	red = #FF000
+	red-color = #FF0000
+	yellow = #FFF000;
+	yellow-color = #FFF000;
+}

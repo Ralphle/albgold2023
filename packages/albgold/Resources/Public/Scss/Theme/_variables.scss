@@ -1,0 +1,269 @@
+
+
+$font-family: "DINWeb", Cabin, Arial, sans-serif;
+$font-family-light: "DINWeb-Light", Cabin, Arial, sans-serif;
+$font-family-bold: "DINWeb-Bold", Cabin, Arial, sans-serif;
+
+
+$primary: #CFBB7E;
+$secondary: #4C263F;
+$tertiary: #4E87A0;
+$quarternary: #77C5D5;
+
+$blue: #4E87A0;
+$blue-light: #77C5D5;
+$red: #CD545B;
+$orange: #EFAA22;
+$yellow: #FFD229;
+$aubergine: #4C263F;
+$gold: #CFBB7E;
+$green: #A9C47F;
+$green-light: #DBDE70;
+$green-dark: #789D4A;
+
+$grey-light: #D9D9D6;
+$grey: #878787;
+$grey-dark: #707070;
+
+$text-color: $grey;
+$def-padding: 1em;
+$def-radius: 1em;
+$spezradius: 50% 50% 50% 0;
+$titlesize: 1.8rem;
+
+
+
+
+@mixin darkbgcolors() {
+	color: white !important;
+	h1,h2,h3,h4, a, time {
+		color: white !important;
+	}
+	a {
+		&:hover, &:focus {
+			opacity: 0.6;
+		}		
+		&.button.ghost {
+			border-color: white;
+		}
+	}
+		
+}
+
+
+
+
+@mixin animbutton() {
+	@include def-transition(1);
+	
+
+	&:hover {
+		transform: translate(1px,1px);
+		@include def-transition(5);
+	}
+	&:focus {
+			transform: translate(1px,1px);
+			@include def-transition(5);
+	}
+	&:visited {
+	}
+	&:active {
+		transform: translate(2px,2px);
+	}
+}
+	
+
+
+
+@mixin whitebutton() {
+	@include animbutton();
+	background-color:  white;
+	color: $secondary;
+	text-decoration: none;
+	
+	&:link {
+		color: $secondary;
+	}	
+	&:hover {
+		background-color:  rgba(255,255,255,0.7);
+	}
+	&:focus {
+		background-color:  rgba(255,255,255,0.7);
+		color: $secondary;
+	}
+	&:visited {
+		color: $secondary;
+	}
+	&:active {
+		color: $red;
+		background-color:  rgba(255,255,255,0.6);
+	}
+}
+
+
+@mixin whiteoutlinebutton() {
+	background-color:  transparent;
+	color: white;
+	border: 1px solid white;
+	text-decoration: none;
+	
+	&:link {
+
+	}	
+	&:hover {
+		background-color:  rgba(255,255,255,0.2);
+	}
+	&:focus {
+		background-color:  rgba(255,255,255,0.2);
+		color: $secondary;
+	}
+	&:visited {
+		color: white;
+	}
+	&:active {
+		color: $red;
+		background-color:  rgba(255,255,255,0.6);
+	}
+}
+
+
+
+
+
+
+
+
+
+@mixin whitelink() {
+	--frame-color: white;
+    --frame-link-color: white;
+    --frame-link-hover-color: var(--bs-white-transparent);
+	color: white;
+	
+	a {	
+		text-decoration: underline;
+		color: white;
+		&:hover {
+			color: white;
+			transform: translate(1px,1px);
+		}
+		&:active {
+			color: white;
+		}
+		&:focus {
+			background-color: rgba(0,0,0,0.22);
+			color: white;
+			text-decoration: none;
+			transform: translate(1px,1px);
+		}
+		&.active {
+			color: $green;
+		}
+	}
+	
+}
+
+
+@mixin darklink() {
+	color: $grey-dark;
+	--frame-color: #707070;
+    --frame-link-color: #707070;
+    --frame-link-hover-color: black;
+	
+	a {
+		text-decoration: underline;
+		&:hover {
+		color: black !important;
+		/*text-shadow: 1px 1px 5px rgba(32,17,0,0.70);*/
+		transform: translate(1px,1px);
+		}
+		&:active {
+			color: $secondary !important;
+		}
+		&:focus {
+			background-color: rgba(255,255,255,0.45);
+			color: $secondary !important;
+			text-decoration: none;
+			transform: translate(1px,1px);
+			/*text-shadow: 1px 1px 5px rgba(32,17,0,0.70);*/
+		}
+		&.active {
+			color: $green;
+		}
+	}
+}
+
+
+
+
+@mixin imagehover() {	
+	a {
+		img {
+			@include def-transition(5);
+		}
+		&:hover, &:focus {
+			img {
+					
+					transform: scale(1.05);
+				}
+			}
+		&:active {
+			img {
+				transform: scale(1);
+				opacity: 0.87;
+			}
+			
+		}
+	}
+	
+}
+
+
+
+
+
+
+
+
+@mixin zoom($scale) {
+	-moz-transform: scale($scale);
+  	-webkit-transform: scale($scale);
+  	transform: scale($scale);
+}
+
+
+
+
+
+
+@mixin def-transition($duration) {
+	transition-timing-function: ease-out;
+	transition-property: all;
+	transition-duration: ($duration/10)*1s;
+}
+
+
+
+
+
+@mixin awesomeicon($icon,$fontsize) {
+    content: $icon;
+	font: normal normal normal 14px/1 "Font Awesome 5 Pro";
+	font-size: $fontsize;
+	display: inline-block;    
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+	font-weight: 600;
+}
+
+
+
+
+@mixin respondMaxWidth($width) {
+	@media only screen and (max-width: $width + "px") { @content; }
+}
+
+@mixin respondMinWidth($width) {
+	@media only screen and (min-width: $width + "px") { @content; }
+}

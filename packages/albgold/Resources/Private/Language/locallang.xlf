@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" date="2023-07-03UTC14:52:400">
+        <header>
+            <authorName>Ralph Pfeifer</authorName>
+            <authorEmail>ralph.pfeifer@tn34.de</authorEmail>
+        </header>
+        <body>
+			<trans-unit id="copyright.albgold.textbefore">
+				<source>ALB-GOLD Noodles</source>
+			</trans-unit>
+			<trans-unit id="copyright.albgold.textafter">
+				<source>| all rgihts reserved</source>
+			</trans-unit>
+			
+			<trans-unit id="copyright.bechtle.textbefore">
+				<source></source>
+			</trans-unit>
+			<trans-unit id="copyright.bechtle.textafter">
+				<source>© Bechtle is a brand of ALB-GOLD Teigwaren GmbH in 72818 Trochtelfingen / Germany • info@bechtle-teigwaren.de</source>
+			</trans-unit>
+			
+			<trans-unit id="more-link-event">
+				<source>show event</source>
+			</trans-unit>
+			<trans-unit id="more-link-news">
+				<source>read more</source>
+			</trans-unit>
+			<trans-unit id="events.booked">
+				<source>fully booked</source>
+			</trans-unit>
+			<trans-unit id="events.available">
+				<source>Places are available</source>
+			</trans-unit>
+			<trans-unit id="events.someplaces">
+				<source>Few places left</source>
+			</trans-unit>
+			<trans-unit id="events.info">
+				<source>info</source>
+			</trans-unit>
+			<trans-unit id="events.eventdate">
+				<source>Event Date</source>
+			</trans-unit>
+			<trans-unit id="events.location">
+				<source>Event Location</source>
+			</trans-unit>
+			<trans-unit id="events.price">
+				<source>Price</source>
+			</trans-unit>
+			<trans-unit id="events.eventtime">
+				<source>Times</source>
+			</trans-unit>
+			<trans-unit id="allCategories">
+				<source>all categories</source>
+			</trans-unit>
+			<trans-unit id="month">
+				<source>Month</source>
+			</trans-unit>
+			<trans-unit id="showAll">
+				<source>show all</source>
+			</trans-unit>
+			<trans-unit id="searchlabel">
+				<source>search</source>
+			</trans-unit>
+			<trans-unit id="myleaflet.dealer">
+				<source>dealer</source>
+			</trans-unit>
+			<trans-unit id="myleaflet.city">
+				<source>city</source>
+			</trans-unit>
+			<trans-unit id="myleaflet.street">
+				<source>street</source>
+			</trans-unit>
+			<trans-unit id="myleaflet.distance">
+				<source>distance</source>
+			</trans-unit>
+			<trans-unit id="myleaflet.show">
+				<source>show</source>
+			</trans-unit>
+			<trans-unit id="myleaflet.showonMap">
+				<source>show on Map</source>
+			</trans-unit>
+        </body>
+    </file>
+</xliff>

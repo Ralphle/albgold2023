@@ -34,5 +34,3 @@ if (!is_string($currentNode[$valueKeyPart])) {
 vwndor/wsr/myleaflet/Classes/Controller/AjaxController.php
 ----------------------------------------------
  114 	$apiURL = "https://nominatim.openstreetmap.org/search?q=$address,$country&format=json&limit=1";
- 
- Tests

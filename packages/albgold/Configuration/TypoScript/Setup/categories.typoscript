@@ -1,0 +1,242 @@
+
+
+lib.categories = CONTENT
+lib.categories {
+  table = sys_category
+  select {
+    # Adapt to your needs
+    pidInList = root
+    # Set a recursive level if needed
+    # recursive = 2
+    
+    leftjoin = sys_category_record_mm ON sys_category.uid = sys_category_record_mm.uid_local
+    where.dataWrap = sys_category_record_mm.tablenames = 'sys_file_metadata' AND sys_category_record_mm.fieldname = 'categories' AND sys_category_record_mm.uid_foreign = {CURRENT:1}    
+  }
+  
+  # Render categories: cat1, cat2, cat3, 
+  renderObj = TEXT
+  renderObj {
+    field = title
+    noTrimWrap = ||, |
+  }
+  
+  # remove last space because of noTrimWrap above
+  stdWrap.trim = 1
+  # remove last comma because of noTrimWrap above
+  stdWrap.substring = 0, -1
+}
+
+
+
+
+
+
+# - - - - - - -
+#
+# <f:cObject typoscriptObjectPath="lib.getcategorieUID" data="{currentUid:resultrow.orig_uid}"  />
+#
+# - - - - - - -
+
+lib.getcategorieUID = CONTENT
+lib.getcategorieUID {
+	table = sys_category
+	select {
+		pidInList = 2
+		recursive = 4
+		leftjoin = sys_category_record_mm ON sys_category.uid = sys_category_record_mm.uid_local
+		where.dataWrap = sys_category_record_mm.tablenames = 'pages' AND sys_category_record_mm.fieldname = 'categories' AND sys_category_record_mm.uid_foreign = {FIELD:currentUid}
+	}
+	renderObj = COA
+	renderObj {
+		10 = TEXT
+		10.field = uid
+	}
+}
+
+
+
+
+
+# - - - - - - -
+#
+# <f:cObject typoscriptObjectPath="lib.getcategorieColor" data="{currentUid:resultrow.orig_uid}"  />
+#
+# Logo Category from "page" uid
+# - - - - - - -
+
+lib.getcategorieColor = CONTENT
+lib.getcategorieColor {
+	table = sys_category
+	select {
+		pidInList = 2
+		recursive = 4
+		leftjoin = sys_category_record_mm ON sys_category.uid = sys_category_record_mm.uid_local
+		where.dataWrap = sys_category_record_mm.tablenames = 'pages' AND sys_category_record_mm.fieldname = 'categories' AND sys_category_record_mm.uid_foreign = {FIELD:currentUid}
+	}
+	renderObj = COA
+	renderObj {
+		10 = TEXT
+		10.field = catcolor
+	}
+}
+
+
+
+
+
+# <f:variable name="categoryUID"><f:cObject typoscriptObjectPath="lib.getcategorieUID" data="{currentUid:resultrow.orig_uid}"  /></f:variable>
+# <f:cObject typoscriptObjectPath="lib.getcategorieImage" data="{currentUid:categoryUID}"  />
+
+# - - - - - - - - - - - - - - - - - - - - - - - #
+# Logo Category from "page" uid
+# - - - - - - - - - - - - - - - - - - - - - - - #
+
+lib.getcategorieImage = COA
+lib.getcategorieImage {
+	10 = FILES
+	10 {
+		references {
+			table = sys_category
+			uid.field = currentUid
+			fieldName = images
+		}
+
+		renderObj = IMAGE
+		renderObj {
+			file.import.dataWrap = {file:current:storage}:{file:current:identifier}
+			file.height = 200
+			altText.field = alttext
+			wrap = 
+		}
+		stdWrap.wrap = 
+	}
+}
+
+# - - - - - - - - - - - - - - - - - - - - - - - #
+# Image-path only 
+# - - - - - - - - - - - - - - - - - - - - - - - #
+lib.getcategorieImagePath = FILES
+lib.getcategorieImagePath {
+    references {
+        table = sys_category
+        uid.field = currentUid
+        fieldName = images
+    }
+    renderObj = TEXT
+    renderObj {
+        data = file:current:publicUrl
+		#import.data = file:current:uid
+        treatIdAsReference = 1
+		forceAbsoluteUrl = 1
+		stdWrap.trim = 1
+    }
+}
+
+
+
+
+
+
+
+
+
+# - - - - - - -
+#
+# <f:cObject typoscriptObjectPath="lib.getEventLocation" data="{currentUid:newsItem.location}" />
+#
+# Get Location Data of Event
+#
+# - - - - - - -
+
+lib.getEventLocation = CONTENT
+lib.getEventLocation {
+	table = tx_event_domain_model_location
+	select {
+		pidInList = 71
+		uid.field = currentUid
+		uidInList.field = currentUid
+		
+		#where.dataWrap = DB:tx_event_domain_model_location:{field:currentUid}:pid
+		#where.data = tx_event_domain_model_location.uid = {FIELD:currentUid}
+		#where.dataWrap = uid = {FIELD:currentUid}
+	}
+	renderObj = COA
+	renderObj {
+		10 = TEXT
+		10.field = title
+		10.wrap = <p>|</p>
+		20 = TEXT
+		20 {
+			field = locationaddress
+			wrap = <p>|</p>
+			required = 1
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+# Show categories of table tt_content
+tt_content.text.dataProcessing {
+  300 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+  300 {
+    table = sys_category
+    selectFields = sys_category.*
+    pidInList = root
+    join = sys_category_record_mm ON sys_category.uid = sys_category_record_mm.uid_local
+    where.dataWrap = sys_category_record_mm.tablenames = 'tt_content' AND sys_category_record_mm.fieldname = 'categories' AND sys_category_record_mm.uid_foreign = {FIELD:uid}
+    as = contentCategories
+  }
+}
+
+
+
+
+
+
+# - - - - - - - - - - - 
+# Show categories of table pages
+# - - - - - - - - - - - 
+page.10.dataProcessing {
+  301 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+  301 {
+    table = sys_category
+    selectFields = sys_category.*
+    pidInList = root
+    join = sys_category_record_mm ON sys_category.uid = sys_category_record_mm.uid_local
+    where.dataWrap = sys_category_record_mm.tablenames = 'pages' AND sys_category_record_mm.fieldname = 'categories' AND sys_category_record_mm.uid_foreign = {FIELD:uid}
+    as = pageCategories
+  }
+}
+
+# Within the Fluid Template use. And YES, use it with the prepended dot in data attribute:
+# <f:cObject typoscriptObjectPath="lib.categories" data="{file.originalFile.metaData.}" currentValueKey="uid" table="sys_file_metadata" />
+
+
+
+
+
+
+
+# - - - - - - - - - - - 
+# Menu page_menu
+# - - - - - - - - - - - 
+/*
+tt_content.menu_pages.dataProcessing.10 {
+dataProcessing.20 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+dataProcessing.20  {
+    table = sys_category
+    selectFields = sys_category.*
+    pidInList = root
+    leftjoin = sys_category_record_mm ON sys_category.uid = sys_category_record_mm.uid_local
+    where.dataWrap = sys_category_record_mm.tablenames = 'pages' AND sys_category_record_mm.fieldname = 'categories' AND sys_category_record_mm.uid_foreign = {FIELD:uid}
+    as = pageCategories
+  }
+}
+*/

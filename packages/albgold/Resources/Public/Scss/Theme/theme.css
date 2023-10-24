@@ -1,0 +1,41 @@
+/*
+Error: Invalid CSS after "...dion-btn-icon: ": expected "}", was "url("data:image..."
+        on line 2325 of /Volumes/RPKD Daten/Kunden/TN34/Albgold/Albgold_2023_git/packages/albgold/Resources/Public/Scss/Theme/theme.scss
+
+2320:     --bs-accordion-border-radius: 0;
+2321:     --bs-accordion-inner-border-radius: 0;
+2322:     --bs-accordion-btn-padding-x: 1.5rem;
+2323:     --bs-accordion-btn-padding-y: 1.5rem;
+2324:     --bs-accordion-btn-bg: white;
+2325:     --bs-accordion-btn-icon: url("data:image/svg+xml,%3Csvg fill='%23CFBB7E' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m14.84 7.37h2.32v17.26h-2.32z' transform='matrix(0 1 -1 0 32 0)'/%3E%3C/svg%3E");
+2326:     --bs-accordion-btn-icon-width: 1.25rem;
+2327:     --bs-accordion-btn-icon-transform: rotate(-180deg);
+2328:     --bs-accordion-btn-icon-transition: transform 0.2s ease-in-out;
+2329:     --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3Csvg fill='%23CFBB7E' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m14.84 6.85h2.32v17.26h-2.32z'/%3E%3Cpath d='m14.84 6.85h2.32v17.26h-2.32z' transform='matrix(0 1 -1 0 31.49 -.51)'/%3E%3C/svg%3E");
+2330:     --bs-accordion-btn-focus-border-color: grey;
+
+Backtrace:
+/Volumes/RPKD Daten/Kunden/TN34/Albgold/Albgold_2023_git/packages/albgold/Resources/Public/Scss/Theme/theme.scss:2325
+/Applications/Adobe Dreamweaver 2021/Adobe Dreamweaver 2021.app/Contents/Resources/gems/rubygems/gems/sass-3.7.4/lib/sass/scss/parser.rb:1308:in `expected'
+/Applications/Adobe Dreamweaver 2021/Adobe Dreamweaver 2021.app/Contents/Resources/gems/rubygems/gems/sass-3.7.4/lib/sass/scss/parser.rb:1238:in `expected'
+/Applications/Adobe Dreamweaver 2021/Adobe Dreamweaver 2021.app/Contents/Resources/gems/rubygems/gems/sass-3.7.4/lib/sass/scss/parser.rb:1233:in `tok!'
+/Applications/Adobe Dreamweaver 2021/Adobe Dreamweaver 2021.app/Contents/Resources/gems/rubygems/gems/sass-3.7.4/lib/sass/scss/parser.rb:690:in `block'
+/Applications/Adobe Dreamweaver 2021/Adobe Dreamweaver 2021.app/Contents/Resources/gems/rubygems/gems/sass-3.7.4/lib/sass/scss/parser.rb:681:in `ruleset'
+/Applications/Adobe Dreamweaver 2021/Adobe Dreamweaver 2021.app/Contents/Resources/gems/rubygems/gems/sass-3.7.4/lib/sass/scss/parser.rb:707:in `block_child'
+/Applications/Adobe Dreamweaver 2021/Adobe Dreamweaver 2021.app/Contents/Resources/gems/rubygems/gems/sass-3.7.4/lib/sass/scss/parser.rb:700:in `block_contents'
+/Applications/Adobe Dreamweaver 2021/Adobe Dreamweaver 2021.app/Contents/Resources/gems/rubygems/gems/sass-3.7.4/lib/sass/scss/parser.rb:137:in `stylesheet'
+/Applications/Adobe Dreamweaver 2021/Adobe Dreamweaver 2021.app/Contents/Resources/gems/rubygems/gems/sass-3.7.4/lib/sass/scss/parser.rb:41:in `parse'
+/Applications/Adobe Dreamweaver 2021/Adobe Dreamweaver 2021.app/Contents/Resources/gems/rubygems/gems/sass-3.7.4/lib/sass/engine.rb:414:in `_to_tree'
+/Applications/Adobe Dreamweaver 2021/Adobe Dreamweaver 2021.app/Contents/Resources/gems/rubygems/gems/sass-3.7.4/lib/sass/engine.rb:290:in `render'
+/Applications/Adobe Dreamweaver 2021/Adobe Dreamweaver 2021.app/Contents/Resources/gems/rubygems/gems/sass-3.7.4/lib/sass/exec/sass_scss.rb:396:in `run'
+/Applications/Adobe Dreamweaver 2021/Adobe Dreamweaver 2021.app/Contents/Resources/gems/rubygems/gems/sass-3.7.4/lib/sass/exec/sass_scss.rb:63:in `process_result'
+/Applications/Adobe Dreamweaver 2021/Adobe Dreamweaver 2021.app/Contents/Resources/gems/rubygems/gems/sass-3.7.4/lib/sass/exec/base.rb:50:in `parse'
+/Applications/Adobe Dreamweaver 2021/Adobe Dreamweaver 2021.app/Contents/Resources/gems/rubygems/gems/sass-3.7.4/lib/sass/exec/base.rb:18:in `parse!'
+/Applications/Adobe Dreamweaver 2021/Adobe Dreamweaver 2021.app/Contents/Resources/gems/rubygems/gems/sass-3.7.4/bin/sass:13:in `<top (required)>'
+/Applications/Adobe Dreamweaver 2021/Adobe Dreamweaver 2021.app/Contents/Resources/gems/bin/sass:34:in `load'
+/Applications/Adobe Dreamweaver 2021/Adobe Dreamweaver 2021.app/Contents/Resources/gems/bin/sass:34:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid CSS after \"...dion-btn-icon: \": expected \"}\", was \"url(\"data:image...\"\A         on line 2325 of /Volumes/RPKD Daten/Kunden/TN34/Albgold/Albgold_2023_git/packages/albgold/Resources/Public/Scss/Theme/theme.scss\A \A 2320:     --bs-accordion-border-radius: 0;\A 2321:     --bs-accordion-inner-border-radius: 0;\A 2322:     --bs-accordion-btn-padding-x: 1.5rem;\A 2323:     --bs-accordion-btn-padding-y: 1.5rem;\A 2324:     --bs-accordion-btn-bg: white;\A 2325:     --bs-accordion-btn-icon: url(\"data:image/svg+xml,%3Csvg fill='%23CFBB7E' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m14.84 7.37h2.32v17.26h-2.32z' transform='matrix(0 1 -1 0 32 0)'/%3E%3C/svg%3E\");\A 2326:     --bs-accordion-btn-icon-width: 1.25rem;\A 2327:     --bs-accordion-btn-icon-transform: rotate(-180deg);\A 2328:     --bs-accordion-btn-icon-transition: transform 0.2s ease-in-out;\A 2329:     --bs-accordion-btn-active-icon: url(\"data:image/svg+xml,%3Csvg fill='%23CFBB7E' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m14.84 6.85h2.32v17.26h-2.32z'/%3E%3Cpath d='m14.84 6.85h2.32v17.26h-2.32z' transform='matrix(0 1 -1 0 31.49 -.51)'/%3E%3C/svg%3E\");\A 2330:     --bs-accordion-btn-focus-border-color: grey;"; }

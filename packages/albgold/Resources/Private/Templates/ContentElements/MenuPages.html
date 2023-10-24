@@ -1,0 +1,77 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+<f:section name="Main">
+
+    <f:if condition="{menu}">
+        <f:variable name="imageConfig">{settings.responsiveimages.contentelements.menu_card_list.3}</f:variable>
+        <bk2k:data.imageVariants as="variants" variants="{variants}" multiplier="{imageConfig.multiplier}" gutters="{imageConfig.gutters}" corrections="{imageConfig.corrections}" />
+        <f:render partial="Menu/SkipNavigation" arguments="{_all}" />
+        <div class="card-menu card-menu-align-{data.pi_flexform.align} card-menu-columns-3">
+            <f:for each="{menu}" as="page">
+                <div class="card-menu-item">
+					
+					<f:comment>
+					<f:debug inline="true">{data}</f:debug>
+					</f:comment>
+			
+					<f:variable name="categoryUID"><f:cObject typoscriptObjectPath="lib.getcategorieUID" data="{currentUid:page.data.uid}"  /></f:variable>
+					<f:variable name="categoryColor"><f:cObject typoscriptObjectPath="lib.getcategorieColor" data="{currentUid:page.data.uid}"  /></f:variable>
+					
+                    <div class="card">
+						
+						<a href="{page.link}"{f:if(condition: page.target, then: ' target="{page.target}"')} class="card-link" title="{page.title}" data-toggle="tooltip">
+                        <f:if condition="{page.files.0}"> 
+							<f:then>
+								<div class="card-img-top">
+									<f:render partial="Media/Rendering/Image" arguments="{file: page.files.0, data: page.data, settings: settings, variants: variants}" />  
+								</div>
+							</f:then>
+							<f:else>
+								<div class="card-img-top hasnoimage"></div>
+							</f:else>                                                          
+                        </f:if>
+							
+                        <div class="card-body cat-color-{categoryUID} cat-color-{categoryColor}">
+                            <f:if condition="{page.icon}">
+                                <div class="card-icon">
+                                    <bk2k:icon icon="{page.icon}" width="{settings.menucard.icon.width}" height="{settings.menucard.icon.height}" />
+                                </div>
+                            </f:if>
+																											
+							<f:variable name="categoryImagePath"><f:cObject typoscriptObjectPath="lib.getcategorieImagePath" data="{currentUid:categoryUID}" /></f:variable>
+								
+							<f:if condition="{categoryImagePath}">
+								<div class="cat-icon">	
+									 <bk2k:inlineSvg src="{categoryImagePath}" height="85" width="85" />
+								</div>
+							</f:if>
+								
+														
+							
+                            <f:if condition="{page.title}">
+                                <h{f:if(condition: data.subitems_header_layout, then: '{data.subitems_header_layout}', else: '4')}	class="card-title">
+                                    <f:format.crop maxCharacters="{settings.menucard.title.crop}">{page.title}</f:format.crop>
+                                </h{f:if(condition: data.subitems_header_layout, then: '{data.subitems_header_layout}', else: '4')}>
+                            </f:if>
+                            <f:if condition="{page.data.subtitle}">
+                                <h{f:if(condition: data.subitems_header_layout, then: '{data.subitems_header_layout+1}', else: '5')} class="card-subtitle">
+                                    <f:format.crop maxCharacters="{settings.menucard.subtitle.crop}">{page.data.subtitle}</f:format.crop>
+                                </h{f:if(condition: data.subitems_header_layout, then: '{data.subitems_header_layout+1}', else: '5')}>
+                            </f:if>
+                            <f:if condition="{page.data.abstract}">
+                                <p class="card-text"><f:format.crop maxCharacters="{settings.menucard.abstract.crop}">{page.data.abstract}</f:format.crop></p>
+                            </f:if>
+							
+                        </div>
+						</a>
+                    </div>
+
+                </div>
+            </f:for>
+        </div>
+    </f:if>
+
+	
+	
+</f:section>
+</html>

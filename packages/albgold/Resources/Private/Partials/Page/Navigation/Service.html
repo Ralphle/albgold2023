@@ -1,0 +1,30 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+    <f:render section="ServiceMenu" arguments="{menu: servicenavigation, level: 0, theme: theme}" />
+    <f:section name="ServiceMenu">
+        <f:if condition="{menu}">
+            <f:variable name="level" value="{level + 1}" />
+            <ul class="service-navigation-list service-navigation-list-level-{level}">
+                <f:for each="{menu}" as="item">
+
+                    <li class="service-navigation-item service-navigation-item-level-{level} service-navigation-item-id-{item.data.uid}">
+                        <a class="service-navigation-link service-navigation-link-level-{level}" href="{item.link}"{f:if(condition: '{item.target}', then: ' target="{item.target}"')}{f:if(condition: '{item.target} == "_blank"', then: ' rel="noopener noreferrer"')} title="{item.title}">
+                            <f:if condition="{theme.servicenavigation.icon.enable} && {item.icon}">
+                                <span class="service-navigation-link-icon">
+                                    <bk2k:icon icon="{item.icon}" width="{theme.servicenavigation.icon.width}" height="{theme.servicenavigation.icon.height}" />
+                                </span>
+                            </f:if>
+                            <span class="service-navigation-link-text">
+                                {item.title}
+                            </span>
+                        </a>
+                        <f:if condition="{item.children}">
+                            <f:render section="ServiceMenu" arguments="{menu: item.children, level: level, theme: theme}" />
+                        </f:if>
+                    </li>
+                </f:for>
+            </ul>
+        </f:if>
+    </f:section>
+
+</html>

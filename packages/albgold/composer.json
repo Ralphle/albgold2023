@@ -1,0 +1,28 @@
+{
+    "name": "tn34/albgold",
+    "type": "typo3-cms-extension",
+    "description": "Alb-Gold Webseite",
+    "homepage": "https://www.tn34.de",
+    "license": ["GPL-2.0-or-later"],
+    "keywords": ["TYPO3 CMS"],
+    "require": {
+        "bk2k/bootstrap-package": "^12.0 || ^14.0",
+		"buepro/typo3-container-elements": "^5.1",
+		"friendsoftypo3/tt-address": "^8.0",
+		"georgringer/news": "^11.2",
+		"waconcookiemanagement/wacon-cookie-management": "^4.0",
+		"in2code/powermail": "@dev",
+		"baschte/content-animations": "*",
+		"wsr/myleaflet": "*"
+   },
+    "autoload": {
+        "psr-4": {
+            "Tn34\\Albgold\\": "Classes/"
+        }
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "albgold"
+        }
+	}
+}

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" date="2023-07-03UTC14:52:400" target-language="de">
+        <header>
+            <authorName>Ralph Pfeifer</authorName>
+            <authorEmail>ralph.pfeifer@tn34.de</authorEmail>
+        </header>
+        <body>
+			<trans-unit id="copyright.albgold.textbefore">
+				<source>ALB-GOLD Noodles</source>
+				<target>ALB-GOLD Teigwaren</target>
+			</trans-unit>
+			<trans-unit id="copyright.albgold.textafter">
+				<source> | all rights reserved</source>
+				<target> | Alle Rechte vorbehalten</target>
+			</trans-unit>
+			
+			
+			<trans-unit id="copyright.bechtle.textbefore">
+				<source>Bechtle</source>
+				<target></target>
+			</trans-unit>
+			<trans-unit id="copyright.bechtle.textafter">
+				<source>© Bechtle is a brand of ALB-GOLD Teigwaren GmbH in 72818 Trochtelfingen / Germany • info@bechtle-teigwaren.de</source>
+				<target>© Bechtle ist eine Marke der ALB-GOLD Teigwaren GmbH in 72818 Trochtelfingen / Deutschland • info@bechtle-teigwaren.de</target>
+			</trans-unit>
+			
+			<trans-unit id="more-link-event">
+				<source>show event</source>
+				<target>Zur Veranstaltung</target>
+			</trans-unit>
+			<trans-unit id="more-link-news">
+				<source>read more</source>
+				<target>weiterlesen</target>
+			</trans-unit>
+			<trans-unit id="events.booked">
+				<source>booked</source>
+				<target>ausgebucht!</target>
+			</trans-unit>
+			<trans-unit id="events.available">
+				<source>Places are available</source>
+				<target>Freie Plätze verfügbar</target>
+			</trans-unit>
+			<trans-unit id="events.someplaces">
+				<source>few places left</source>
+				<target>Restplätze vorhanden</target>
+			</trans-unit>
+			<trans-unit id="events.info">
+				<source>info</source>
+				<target>Infos</target>
+			</trans-unit>
+			<trans-unit id="events.eventdate">
+				<source>Event Date</source>
+				<target>Veranstaltungsdatum</target>
+			</trans-unit>
+			<trans-unit id="events.location">
+				<source>Event Location</source>
+				<target>Veranstaltungsort</target>
+			</trans-unit>
+			<trans-unit id="events.price">
+				<source>Price</source>
+				<target>Preisangaben</target>
+			</trans-unit>
+			<trans-unit id="events.eventtime">
+				<source>Times</source>
+				<target>Zeitangaben</target>
+			</trans-unit>
+			<trans-unit id="allCategories">
+				<source>all categories</source>
+				<target>Alle Kategorien</target>
+			</trans-unit>
+			<trans-unit id="month">
+				<source>Month</source>
+				<target>Monat</target>
+			</trans-unit>
+			<trans-unit id="showAll">
+				<source>show all</source>
+				<target>Alle zeigen</target>
+			</trans-unit>
+			<trans-unit id="searchlabel">
+				<source>search</source>
+				<target>Suche</target>
+			</trans-unit>
+			<trans-unit id="myleaflet.dealer">
+				<source>dealer</source>
+				<target>Händler</target>
+			</trans-unit>
+			<trans-unit id="myleaflet.city">
+				<source>city</source>
+				<target>Ort</target>
+			</trans-unit>
+			<trans-unit id="myleaflet.street">
+				<source>street</source>
+				<target>Straße</target>
+			</trans-unit>
+			<trans-unit id="myleaflet.distance">
+				<source>distance</source>
+				<target>Entfernung</target>
+			</trans-unit>
+			<trans-unit id="myleaflet.show">
+				<source>show</source>
+				<target>Anzeigen</target>
+			</trans-unit>
+			<trans-unit id="myleaflet.showonMap">
+				<source>show on Map</source>
+				<target>auf Karte</target>
+			</trans-unit>
+        </body>
+    </file>
+</xliff>
+
+

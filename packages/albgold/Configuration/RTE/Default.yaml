@@ -1,0 +1,138 @@
+imports:
+    - { resource: "EXT:rte_ckeditor/Configuration/RTE/Processing.yaml" }
+    - { resource: "EXT:rte_ckeditor/Configuration/RTE/Editor/Base.yaml" }
+    - { resource: "EXT:rte_ckeditor/Configuration/RTE/Editor/Plugins.yaml" }
+
+editor:
+    externalPlugins:
+        bootstrappackage_address:
+            resource: "EXT:bootstrap_package/Resources/Public/CKEditor/Plugins/Address/plugin.min.js"
+        bootstrappackage_box:
+            resource: "EXT:bootstrap_package/Resources/Public/CKEditor/Plugins/Box/plugin.min.js"
+        bootstrappackage_columns:
+            resource: "EXT:bootstrap_package/Resources/Public/CKEditor/Plugins/Columns/plugin.min.js"
+        bootstrappackage_indent:
+            resource: "EXT:bootstrap_package/Resources/Public/CKEditor/Plugins/Indent/plugin.min.js"
+        bootstrappackage_table:
+            resource: "EXT:bootstrap_package/Resources/Public/CKEditor/Plugins/Table/plugin.min.js"
+
+    config:
+        contentsCss: 
+        - "EXT:bootstrap_package/Resources/Public/Css/bootstrap5-rte.min.css"
+        - "EXT:albgold/Resources/Public/Css/albgold_ckeditor.css"
+
+        stylesSet:
+            - { name: "Lead - Groß", element: "span", attributes: { 'class': 'lead' } }
+            - { name: "Sehr groß", element: "span", attributes: { 'class': 'biglead' } }
+            - { name: "Kleiner Text", element: "span", attributes: { 'class': 'small' } }
+            - { name: "Lowercased text", element: "span", attributes: { 'class': 'text-lowercase' } }
+            - { name: "Uppercased text", element: "span", attributes: { 'class': 'text-uppercase' } }
+            - { name: "Capitalized text", element: "span", attributes: { 'class': 'text-capitalize' } }
+            - { name: "Muted", element: "span", attributes: { 'class': 'text-muted' } }
+            - { name: "Gold", element: "span", attributes: { 'class': 'text-primary' } }
+            - { name: "Aubergine", element: "span", attributes: { 'class': 'text-secondary' } }
+            - { name: "Blau", element: "span", attributes: { 'class': 'text-tertiary' } }
+            - { name: "Hellblau", element: "span", attributes: { 'class': 'text-quaternary' } }
+            - { name: "Rot", element: "span", attributes: { 'class': 'text-red' } }
+            - { name: "Orange", element: "span", attributes: { 'class': 'text-orange' } }
+            - { name: "Gelb", element: "span", attributes: { 'class': 'text-yellow' } }
+            - { name: "Grün", element: "span", attributes: { 'class': 'text-green' } }
+            - { name: "Hellgrün", element: "span", attributes: { 'class': 'text-greenlight' } }
+            - { name: "Dunkelgrün", element: "span", attributes: { 'class': 'text-greendark' } }
+            - { name: "Schwarz", element: "span", attributes: { 'class': 'text-black' } }
+            - { name: "Weiß", element: "span", attributes: { 'class': 'text-white' } }
+           
+
+            - { name: "Gold Button", element: "a", attributes: { 'class': 'btn btn-primary' } }
+            - { name: "AubergineButton ", element: "a", attributes: { 'class': 'btn btn-secondary' } }
+            - { name: "Weiß Button", element: "a", attributes: { 'class': 'btn btn-white' } }
+
+            - { name: "Gold Button Outline", element: "a", attributes: { 'class': 'btn btn-outline-primary' } }
+            - { name: "Aubergine Button Outline", element: "a", attributes: { 'class': 'btn btn-outline-secondary' } }
+            - { name: "Weisser Button Outline", element: "a", attributes: { 'class': 'btn btn-outline-white' } }
+
+            - { name: "Link Arrow", element: "a", attributes: { 'class': 'link-arrow' } }
+            - { name: "Link Chevron", element: "a", attributes: { 'class': 'link-chevron' } }
+            - { name: "Link Page", element: "a", attributes: { 'class': 'link-page' } }
+            - { name: "Link Folder", element: "a", attributes: { 'class': 'link-folder' } }
+            - { name: "Link File", element: "a", attributes: { 'class': 'link-file' } }
+            - { name: "Link External", element: "a", attributes: { 'class': 'link-external' } }
+            - { name: "Link Mail", element: "a", attributes: { 'class': 'link-mail' } }
+            - { name: "Link Globe", element: "a", attributes: { 'class': 'link-globe' } }
+
+            - { name: "List Unstyled", element: "li", attributes: { 'class': 'list-unstyled' } }
+            - { name: "List Inline", element: "li", attributes: { 'class': 'list-inline' } }
+            - { name: "List Check", element: "li", attributes: { 'class': 'list-check' } }
+            - { name: "List Info", element: "li", attributes: { 'class': 'list-info' } }
+            - { name: "List Warning", element: "li", attributes: { 'class': 'list-warning' } }
+            - { name: "List Ban", element: "li", attributes: { 'class': 'list-ban' } }
+            - { name: "List Chevron", element: "li", attributes: { 'class': 'list-chevron' } }
+
+            - { name: "Table", element: "table", attributes: { 'class': 'table' } }
+            - { name: "Table Striped", element: "table", attributes: { 'class': 'table table-striped' } }
+            - { name: "Table Bordered", element: "table", attributes: { 'class': 'table table-bordered' } }
+            - { name: "Table Condensed", element: "table", attributes: { 'class': 'table table-condensed' } }
+
+        toolbarGroups:
+            - { name: styles, groups: [ format, styles ] }
+            - { name: basicstyles, groups: [ basicstyles ] }
+            - { name: paragraph, groups: [ list, indent, blocks, align ] }
+            - "/"
+            - { name: links, groups: [ links ] }
+            - { name: clipboard, groups: [ clipboard, cleanup, undo ] }
+            - { name: editing, groups: [ spellchecker ] }
+            - { name: insert, groups: [ insert ] }
+            - { name: tools, groups: [ table, specialchar ] }
+            - { name: document, groups: [ mode ] }
+
+        format_tags: "p;h1;h2;h3;h4;h5;pre"
+
+        justifyClasses:
+            - text-left
+            - text-center
+            - text-right
+            - text-justify
+
+        extraPlugins:
+            - justify
+            - autolink
+            - wordcount
+            - bootstrappackage_address
+            - bootstrappackage_box
+            - bootstrappackage_columns
+            - bootstrappackage_indent
+            - bootstrappackage_table
+
+        removePlugins:
+            - image
+
+        removeButtons:
+            - JustifyBlock
+            - Underline
+            - Strike
+                   
+        debug: true
+
+classesAnchor:
+    page:
+        class: 'link-page'
+        type: 'page'
+    folder:
+        class: 'link-folder'
+        type: 'folder'
+    file:
+        class: 'link-file, download'
+        type: 'file'
+    external:
+        class: 'link-external'
+        type: 'url'
+    mail:
+        class: 'link-mail'
+        type: 'mail'
+
+buttons:
+    link:
+        properties:
+            class:
+                allowedClasses: 'link-arrow, link-page, link-folder, link-file, link-external, link-mail, download'
+

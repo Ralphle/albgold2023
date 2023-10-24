@@ -1,0 +1,404 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	  xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
+	  xmlns:rx="http://typo3.org/ns/Reelworx/RxShariff/ViewHelper"
+	  data-namespace-typo3-fluid="true">
+
+<f:layout name="Detail" />
+
+
+<f:section name="content">
+	
+	<f:comment>
+		<f:debug inline="true">{newsItem.firstCategory}</f:debug>
+		<f:debug>{_all}</f:debug>
+	</f:comment>
+
+	
+	<f:if condition="{newsItem}">
+		<f:then>
+			<n:format.nothing>
+				<n:excludeDisplayedNews newsItem="{newsItem}" />
+				<f:if condition="{settings.detail.showMetaTags}">
+					<f:render partial="Detail/Opengraph" arguments="{newsItem: newsItem, settings:settings}" />
+				</f:if>
+                <f:if condition="{newsItem.alternativeTitle}">
+                    <f:then>
+                        <n:titleTag>
+                            <f:format.htmlentitiesDecode>{newsItem.alternativeTitle}</f:format.htmlentitiesDecode>
+                        </n:titleTag>
+                    </f:then>
+                    <f:else>
+                        <n:titleTag>
+                            <f:format.htmlentitiesDecode>{newsItem.title}</f:format.htmlentitiesDecode>
+                        </n:titleTag>
+                    </f:else>
+                </f:if>
+			</n:format.nothing>
+			
+			<div class="cat-header cat-color-{newsItem.firstCategory.catcolor}">
+				<div class="frame">						
+					<f:if condition="{newsItem.firstCategory}">
+						
+						<f:then>
+							<f:if condition="{newsItem.firstCategory.images}">
+								<bk2k:inlineSvg image="{newsItem.firstCategory.images.0.originalResource}" height="36" width="36" />
+							</f:if>
+							<span class="news-list-category">{newsItem.firstCategory.title}</span>
+						</f:then>
+						
+						<f:else if="{settings.backPid}">							
+							<f:cObject typoscriptObjectPath="lib.getFieldFromTable" data="{s_uid:settings.backPid,s_table:'pages',s_field:'title'}"/>
+						</f:else>
+						
+						<f:else>
+							<span class="news-list-category">{newsItem.title} {settings.backPid}</span>
+						</f:else>
+						
+					</f:if>
+				</div>
+			</div>
+			
+			<div class="frame-container frame-container-default">
+			
+			
+			<f:if condition="{settings.backPid}">
+				<div class="news-backlink-wrap">
+					<f:link.page pageUid="{settings.backPid}">
+						<bk2k:inlineSvg src="EXT:albgold/Resources/Public/Images/Icons/Albgoldicons/albgold-arrow-left-circle.svg" height="18" width="18" /> <f:translate key="back-link" />
+					</f:link.page>
+				</div>
+			</f:if>
+			
+				
+			
+			<f:if condition="{settings.detail.showPrevNext}">
+				<n:simplePrevNext pidList="{newsItem.pid}" news="{newsItem}" as="paginated" sortField="datetime">
+					<f:if condition="{paginated}">
+						<ul class="pager">
+							<f:if condition="{paginated.prev}">
+								<li class="previous">
+									<n:link newsItem="{paginated.prev}" settings="{settings}">
+										<span aria-hidden="true">&larr; </span>{paginated.prev.title}
+									</n:link>
+								</li>
+							</f:if>
+							<f:if condition="{paginated.next}">
+								<li class="next">
+									<n:link newsItem="{paginated.next}" settings="{settings}" class="next">
+										{paginated.next.title} <span aria-hidden="true"> &rarr;</span>
+									</n:link>
+								</li>
+							</f:if>
+						</ul>
+					</f:if>
+				</n:simplePrevNext>
+			</f:if>
+			
+			
+			
+			
+			<div class="frame-header header">
+				<h1 itemprop="headline" class="text-center sectiontitle">{newsItem.title}</h1>
+			</div>
+				
+			<n:renderMedia news="{newsItem}" imgClass="img-responsive" videoClass="video-wrapper" audioClass="audio-wrapper">				
+				
+				  <f:alias map="{mediaElement: '{newsItem.falMedia.0}'}">				
+					 <f:image class="full-width" image="{mediaElement}"
+						   title="{mediaElement.originalResource.title}"
+						   alt="{mediaElement.originalResource.alternative}"
+					 />
+				 </f:alias>
+								
+			</n:renderMedia>
+				
+				
+		  	<div class="row">
+				
+			<div class="ce-col col-md-7">
+				<f:if condition="{newsItem.teaser}">
+					<div class="teaser-text" itemprop="description">
+						<h3><f:format.html>{newsItem.teaser}</f:format.html></h3>
+					</div>
+				</f:if>
+
+				<f:if condition="{newsItem.categories}">
+					<div class="news-list-categories">
+						<f:render partial="Category/Items" arguments="{categories:newsItem.categories, settings:settings}" />
+					</div>
+				</f:if>
+				
+				<span class="news-list-date">
+					<time itemprop="datePublished" datetime="{f:format.date(date:newsItem.datetime, format:'Y-m-d')}">
+						<f:comment><f:format.date format="{f:translate(key:'dateFormat')}">{newsItem.datetime}</f:format.date></f:comment>
+					</time>
+				</span>
+
+
+				
+				<f:if condition="{newsItem.contentElements}">
+					<f:cObject typoscriptObjectPath="lib.tx_news.contentElementRendering">{newsItem.contentElementIdList}</f:cObject>
+				</f:if>
+				<div class="news-text-wrap" itemprop="articleBody">
+					<f:format.html>{newsItem.bodytext}</f:format.html>
+				</div>				
+			</div>
+				
+					
+			<div class="ce-col col-md-5 footer">
+				
+
+										
+				<f:if condition="{settings.templateLayout} == 10 || {settings.templateLayout} == 11">
+					<div class="metainfo cat-color-{newsItem.firstCategory.catcolor} frame-option-roundedtopleft frame-option-roundedtopright frame-option-roundedbottomright">
+					<h4>
+						<f:translate key="events.info" extensionName="albgold" />
+					</h4>
+					
+					<f:if condition="{newsItem.booked} > 0">
+						<div class="infosection booked">
+							<f:comment>
+							<f:if condition="{newsItem.booked} == 0">
+								<span class="availability cat-color-green"><f:translate key="events.available" extensionName="albgold" /></span>
+							</f:if>
+							</f:comment>
+							<f:if condition="{newsItem.booked} == 1">
+								<span class="availability cat-color-red label"></span><span class="text"><f:translate key="events.booked" extensionName="albgold" /></span>
+							</f:if>
+							 <f:if condition="{newsItem.booked} == 2">
+								<span class="availability cat-color-orange label"></span><span class="text"><f:translate key="events.someplaces" extensionName="albgold" /></span>
+							</f:if>
+						</div>
+					</f:if>
+				
+					
+					
+					<f:if condition="{newsItem.starttimeevent}">
+						<f:then>
+							<div class="infosection eventstartandend">
+								<div class="label" title="<f:translate key="events.eventdate" extensionName="albgold" />"><bk2k:inlineSvg src="EXT:albgold/Resources/Public/Images/Icons/Albgoldicons/albgold-heartdoc.svg" height="30" width="30" /></div>
+								<div class="text">
+								<f:format.date format="%A, %d. %B %Y">{newsItem.starttimeevent}</f:format.date>
+								<f:if condition="{newsItem.endtimeevent}">
+										–<br>
+										<f:format.date format="%A, %d. %B %Y">{newsItem.endtimeevent}</f:format.date>
+								</f:if>
+								</div>
+							</div>
+						</f:then>
+						<f:else>
+							<div class="infosection eventdate">
+								<div class="label" title="<f:translate key="events.eventdate" extensionName="albgold" />"><bk2k:inlineSvg src="EXT:albgold/Resources/Public/Images/Icons/Albgoldicons/albgold-heartdoc.svg" height="30" width="30" /></div>
+								<div class="text"><f:format.date format="%A, %d. %B %Y">{newsItem.datetime}</f:format.date></div>
+							</div>
+						</f:else>							
+					</f:if>
+					
+					
+					
+					<f:if condition="{newsItem.eventtime}">
+						<div class="infosection eventtime">
+							<div class="label" title="<f:translate key="events.eventtime" extensionName="albgold" />"><bk2k:inlineSvg src="EXT:albgold/Resources/Public/Images/Icons/Albgoldicons/albgold-clock.svg" height="30" width="30" /></div>
+							<div class="text"><f:format.html>{newsItem.eventtime}</f:format.html></div>
+						</div>
+					</f:if>
+					
+					
+					<f:if condition="{newsItem.location}">
+						<div class="infosection location">
+							<div class="label" title="<f:translate key="events.location" extensionName="albgold" />"><bk2k:inlineSvg src="EXT:albgold/Resources/Public/Images/Icons/Albgoldicons/albgold-locationpin.svg" height="30" width="30" /></div>
+							<div class="text">
+								<f:format.html><f:cObject typoscriptObjectPath="lib.getEventLocation" data="{currentUid:newsItem.location}" /></f:format.html>
+							</div>
+						</div>
+					</f:if>
+					
+					
+					<f:if condition="{newsItem.price}">
+						<div class="infosection eventprice">
+							<div class="label" title="<f:translate key="events.price" extensionName="albgold" />"><bk2k:inlineSvg src="EXT:albgold/Resources/Public/Images/Icons/Albgoldicons/albgold-pricetag.svg" height="30" width="30" /></div>
+							<div class="text">
+								<f:format.html>{newsItem.price}</f:format.html>
+								<f:format.html>{newsItem.pricecaption}</f:format.html>
+							</div>
+						</div>
+					</f:if>
+					
+					</div>
+					
+				</f:if> <f:comment>Event block end</f:comment>
+				
+				
+				
+				
+				
+				
+				<f:if condition="{newsItem.relatedLinks} || {newsItem.relatedFiles}">
+					<div class="metainfo cat-color-{newsItem.firstCategory.catcolor} frame-option-roundedtopleft frame-option-roundedtopright frame-option-roundedbottomright">
+					
+					<h4>
+						<f:translate key="related-files" />
+					</h4>
+									
+				<f:if condition="{newsItem.relatedFiles}">
+					<div class="news-related news-related-files">
+						<ul>
+							<f:for each="{newsItem.relatedFiles}" as="relatedFile">
+								<li>
+									<a href="{relatedFile.originalResource.publicUrl -> f:format.htmlspecialchars()}" target="_blank">
+									<div class="filelink-icon fill-color-{newsItem.firstCategory.catcolor}">										
+											<bk2k:inlineSvg src="EXT:albgold/Resources/Public/Images/Icons/Albgoldicons/albgold-download.svg" height="30" width="30" />										
+									</div>
+									<div class="news-related-files-text">
+										<div>{f:if(condition:relatedFile.originalResource.title, then:relatedFile.originalResource.title, else:relatedFile.originalResource.name)}</div>										
+										<div class="news-related-files-size">
+										{relatedFile.originalResource.size -> f:format.bytes()}
+										</div>
+									</div>
+									</a>
+								</li>
+							</f:for>
+						</ul>
+					</div>
+				</f:if>
+
+				<f:if condition="{newsItem.relatedLinks}">
+					<div class="news-related news-related-links">
+						<ul>
+							<f:for each="{newsItem.relatedLinks}" as="relatedLink">
+								<li>
+									<f:link.typolink parameter="{relatedLink.uri}" title="{relatedLink.title}" target="{n:targetLink(link:relatedLink.uri)}">
+										<div class="filelink-icon fill-color-{newsItem.firstCategory.catcolor}">											
+											<bk2k:inlineSvg src="EXT:albgold/Resources/Public/Images/Icons/Albgoldicons/albgold-external-link.svg" height="30" width="30" />										
+										</div>
+										<div class="news-related-link-text">						
+											{f:if(condition: relatedLink.title, then: relatedLink.title, else: relatedLink.uri)}
+											<f:if condition="{relatedLink.description}"><span>{relatedLink.description}</span></f:if>
+										</div>
+									</f:link.typolink>
+									
+								</li>
+							</f:for>
+						</ul>
+					</div>
+				</f:if>
+					
+				</div>
+				
+				</f:if>	
+					
+				
+				
+				<n:renderMedia news="{newsItem}" imgClass="img-responsive" videoClass="video-wrapper" audioClass="audio-wrapper">
+					<f:render partial="Detail/MediaContainer" arguments="{media: newsItem.mediaNonPreviews, settings:settings}" />
+				</n:renderMedia>
+				
+				<f:if condition="!{settings.templateLayout}">
+				
+				<div class="contact cat-color-{newsItem.firstCategory.catcolor} frame-option-roundedtopleft frame-option-roundedtopright frame-option-roundedbottomright">
+					<f:cObject typoscriptObjectPath="lib.fluidLoadRecord">2314</f:cObject>					
+				</div>
+
+					<f:if condition="{newsItem.tags}">
+						<span class="news-list-tags" itemprop="keywords">
+						<f:for each="{newsItem.tags}" as="tag">
+							{tag.title}
+						</f:for>
+						</span>
+					</f:if>
+				</f:if>
+				
+					<f:comment>
+					<f:if condition="{newsItem.author}">
+						<!-- author -->
+						<span class="news-list-author" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+							<f:translate key="author_simple" /> <span itemprop="name">{newsItem.author}</span>
+						</span>
+					</f:if>
+					</f:comment>
+				
+
+				
+				
+				
+				
+				
+			</div>
+
+			</div>
+				
+			</div>	<f:comment>frame-container end</f:comment>
+			
+			
+
+		
+		
+		
+		
+		
+		
+		
+		
+			<f:comment>
+
+			<f:if condition="{settings.detail.showSocialShareButtons}">
+				<f:comment>
+					Care about the privacy of your readers?
+					Checkout https://typo3.org/extensions/repository/view/rx_shariff
+					and it will be used automatically!
+				</f:comment>
+				<n:extensionLoaded extensionKey="rx_shariff">
+					<f:render partial="Detail/Shariff" />
+				</n:extensionLoaded>
+			</f:if>
+			
+			</f:comment>
+			
+			
+			
+		
+		
+		
+		
+		
+
+			<div class="news-related-wrap">
+				<f:comment>
+					Various options exist to fetch different related information:
+					- {newsItem.allRelatedSorted}: all related news, related und related from, sorted by date
+					- {newsItem.related}: all related
+					- {newsItem.relatedSorted}: all related, sorted by date
+					- {newsItem.relatedFrom}: all related from
+					- {newsItem.relatedFromSortedByForeign}: all related from sorted by foreign sorting
+					- {newsItem.relatedFromSorted}: all related from, sorted by date
+				</f:comment>
+
+				<f:if condition="{newsItem.allRelatedSorted}">
+					<!-- Related news records -->
+					<div class="news-related news-related-news">
+						<h4>
+							<f:translate key="related-news" />
+						</h4>
+						<ul>
+							<f:for each="{newsItem.allRelatedSorted}" as="related">
+								<li>
+									<span class="news-related-news-date"><f:format.date format="{f:translate(key:'dateFormat')}">{related.datetime}</f:format.date></span>
+									<n:link newsItem="{related}" settings="{settings}" title="{related.title}">
+										{related.title}
+									</n:link>
+								</li>
+
+							</f:for>
+						</ul>
+					</div>
+				</f:if>
+
+
+			</div>
+		</f:then>
+		<f:else>
+
+		</f:else>
+	</f:if>
+</f:section>
+</html>

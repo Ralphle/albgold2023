@@ -1,0 +1,8 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+    <div class="footer-meta">
+        <f:render partial="Navigation/Meta" arguments="{_all}" />
+    </div>
+	<div class="footer-copyright-text">
+		<f:format.html><f:translate id="copyright.{theme.name}.textbefore" extensionName="Albgold" /> <f:format.date format="Y">now</f:format.date> <f:translate id="copyright.{theme.name}.textafter" extensionName="Albgold" /></f:format.html>
+	</div>
+</html>

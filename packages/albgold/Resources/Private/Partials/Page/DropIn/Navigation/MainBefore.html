@@ -1,0 +1,16 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<div class="header-meta-nav">
+	<div class="header-servicesearch">
+		<f:cObject typoscriptObjectPath="lib.headerSearch" />
+	</div>
+	<f:if condition="{theme.servicenavigation.enable}">
+		<div class="header-servicemenu">
+			<f:render partial="Navigation/Service" arguments="{_all}" />		
+		</div>
+	 </f:if>	
+	<div class="header-language">
+		<bk2k:inlineSvg src="EXT:albgold/Resources/Public/Images/Icons/Albgoldicons/albgold-globe.svg" height="14" class="icon" />		
+		<f:render partial="Navigation/Language" arguments="{_all}" />
+	</div>	
+</div>
+</html>

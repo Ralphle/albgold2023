@@ -1,0 +1,10 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<div class="footer-sociallinks-floating">
+	<f:if condition="{theme.socialmedia.floating.enable}">
+		<f:render partial="Structure/SocialLinks" arguments="{_all}" />															
+	</f:if>
+	<a class="scroll-top" title="{f:translate(key: 'scrolltop', extensionName: 'bootstrap_package')}" href="#top">
+		<span class="scroll-top-icon-arrow"><bk2k:inlineSvg src="EXT:albgold/Resources/Public/Images/Icons/Albgoldicons/albgold-arrow-up.svg" height="28" /></span>
+	</a>
+</div>
+</html>

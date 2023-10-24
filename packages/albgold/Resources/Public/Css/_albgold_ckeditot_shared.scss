@@ -1,0 +1,153 @@
+
+h1,.h1,h2,.h2,h3,.h3,h4,.h4,h5,.h5,h6,.h6 {
+	text-transform: uppercase;
+}
+
+
+ul {
+
+	.list-info,.list-check,.list-warning,.list-ban,.list-chevron {
+		list-style: none;
+		padding: 0
+	}
+
+	.list-info>li,.list-check>li,.list-warning>li,.list-ban>li,.list-chevron>li {
+		clear: both;
+		position: relative;
+		padding-left: 1.35em
+	}
+
+	li.list-info:before, 
+	li.list-check::before,
+	li.list-warning:before,
+	li.list-ban:before,
+	li.list-chevron:before {
+		display: block;
+		content: "";
+		float: left;
+		margin-top: 0.25em;
+		margin-left: -1.35em;
+		width: 1em;
+		height: 1em
+	}
+
+	li.list-info:before {
+		background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cg fill='%234E87A0'%3e%3cpath d='M8 2c3.3 0 6 2.7 6 6s-2.7 6-6 6-6-2.7-6-6 2.7-6 6-6m0-1C4.1 1 1 4.1 1 8s3.1 7 7 7 7-3.1 7-7-3.1-7-7-7z'/%3e%3cpath d='M7 5a1 1 0 1 1 2 0 1 1 0 1 1-2 0zM7 8a1 1 0 1 1 2 0v3a1 1 0 1 1-2 0V8z'/%3e%3c/g%3e%3c/svg%3e")
+	}
+
+	li.list-check:before {
+		background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cg fill='%23789D4A'%3e%3cpath d='M13.3 4.8l-.7-.7c-.2-.2-.5-.2-.7 0L6.5 9.5 4 6.9c-.2-.2-.5-.2-.7 0l-.6.7c-.2.2-.2.5 0 .7l3.6 3.6c.2.2.5.2.7 0l6.4-6.4c.1-.2.1-.5-.1-.7z'/%3e%3c/g%3e%3c/svg%3e")
+	}
+
+	li.list-warning:before {
+		background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cg fill='%23CFBB7E'%3e%3ccircle cx='8' cy='12' r='1'/%3e%3cpath d='M8.5 10h-1l-.445-4.45A.5.5 0 0 1 7.552 5h.896a.5.5 0 0 1 .497.55L8.5 10z'/%3e%3cpath d='M8 2.008a.98.98 0 0 1 .875.515l5.536 9.992a.983.983 0 0 1-.013.993.983.983 0 0 1-.862.492H2.464a.983.983 0 0 1-.862-.492.983.983 0 0 1-.013-.993l5.536-9.992A.98.98 0 0 1 8 2.008m0-1a1.98 1.98 0 0 0-1.75 1.03L.715 12.032C-.024 13.364.94 15 2.464 15h11.072c1.524 0 2.488-1.636 1.75-2.97L9.749 2.04A1.98 1.98 0 0 0 8 1.009z'/%3e%3c/g%3e%3c/svg%3e")
+	}
+
+	li.list-ban:before {
+		background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cg fill='%23CD545B'%3e%3cpath d='M8 2C4.7 2 2 4.7 2 8s2.7 6 6 6 6-2.7 6-6-2.7-6-6-6zm4.5 6c0 .9-.3 1.8-.8 2.5L5.5 4.3c.7-.5 1.6-.8 2.5-.8 2.5 0 4.5 2 4.5 4.5zm-9 0c0-.9.3-1.8.8-2.5l6.2 6.2c-.7.5-1.6.8-2.5.8-2.5 0-4.5-2-4.5-4.5z'/%3e%3c/g%3e%3c/svg%3e")
+	}
+
+	li.list-chevron:before {
+		background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cg fill='%234C263F'%3e%3cpath d='M9.586 8L6.05 11.536l.707.707L11 8 6.757 3.757l-.707.707z'/%3e%3c/g%3e%3c/svg%3e")
+	}
+	
+}
+
+
+a {
+	.link-external {
+		
+	}
+	.btn-primary, .btn-default {
+		background-color: $primary;
+	}
+	.btn-secondary {
+		background-color: $secondary;
+	}
+	.btn-outline-primary {
+		border-color: $primary;
+	}
+	.btn-outline-secondary {
+		border-color: $secondary;
+	}
+	.btn-outline-white {
+		border-color: lightgray;
+		color: lightgray;
+	}
+	.btn-white {
+		background-color: lightgray;
+		color: gray;
+	}
+	&.link-arrow {
+		text-transform: uppercase;
+		fill: white;
+		
+		&:after {
+			background: none;
+			content: none;
+			width: 0;
+		}
+		&:before {
+			background: url("data:image/svg+xml;charset=UTF-8,<svg  fill='%23878787' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'><path d='m23.64 14.22h-11.01l2.47-2.48c.69-.69.69-1.82 0-2.51s-1.82-.69-2.51 0l-5.49 5.51c-.69.69-.69 1.82 0 2.51l5.49 5.51c.35.35.8.52 1.26.52s.91-.17 1.25-.52c.7-.69.7-1.82 0-2.51l-2.47-2.48h11.01c.98 0 1.78-.8 1.78-1.78s-.8-1.78-1.78-1.78z'/><path d='m16 0c-8.82 0-16 7.18-16 16s7.18 16 16 16 16-7.18 16-16-7.18-16-16-16zm0 28.44c-6.86 0-12.44-5.58-12.44-12.44s5.58-12.44 12.44-12.44 12.44 5.58 12.44 12.44-5.58 12.44-12.44 12.44z'/></svg>");
+			content: " ";
+			width: 1em;
+			height: 1em;
+			transform: rotate(180deg);
+			margin-right: 3px;
+			vertical-align: text-top;
+			display: inline-block;
+			margin-top: -4px;
+			
+		}
+	}
+}
+
+.btn {
+	--bs-btn-border-radius: var(--bs-border-radius-pill);
+}
+
+.lead {
+    font-size: 2.2rem !important;
+
+}
+
+.biglead {
+	font-size: 3rem;
+}
+
+
+
+.text-primary {
+	color: $primary;
+}
+.text-secondary {
+	color: $secondary;
+}
+.text-tertiary {
+	color: $tertiary;
+}
+.text-quaternary {
+	color: $quarternary;
+}
+.text-orange {
+	color: $orange;
+}
+.text-yellow {
+	color: $yellow;
+}
+.text-red {
+	color: $red;
+}
+.text-green {
+	color: $green;
+}
+.text-greenlight {
+	color: $green-light;
+}
+.text-greendark {
+	color: $green-dark;
+}
+
+.text-black {
+	color: black;
+}

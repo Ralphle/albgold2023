@@ -1,0 +1,27 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:if condition="{theme.footercontent.enable}">
+<section class="section footer-section footer-section-content">
+  <div class="frame frame-layout-default frame-background-none frame-space-before-none frame-space-after-nomargin frame-no-backgroundimage">
+    <div class="container">
+      <f:render partial="Header/Logo" arguments="{_all}" />
+      <div class="section-row">
+        <div class="section-column footer-section-content-column footer-section-content-column-left">
+          <f:cObject typoscriptObjectPath="lib.dynamicContent" data="{pageUid: '{data.uid}', colPos: '10', slide: '-1'}" />
+        </div>
+        <div class="section-column footer-section-content-column footer-section-content-column-middle">
+          <f:cObject typoscriptObjectPath="lib.dynamicContent" data="{pageUid: '{data.uid}', colPos: '11', slide: '-1'}" />
+        </div>
+        <div class="section-column footer-section-content-column footer-section-content-column-middle">
+          <div class="footer-navigation frame">
+            <f:render partial="Navigation/Footer" arguments="{_all}" />
+          </div>
+        </div>
+        <div class="section-column footer-section-content-column footer-section-content-column-right">
+          <f:cObject typoscriptObjectPath="lib.dynamicContent" data="{pageUid: '{data.uid}', colPos: '12', slide: '-1'}" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</f:if>
+</html>

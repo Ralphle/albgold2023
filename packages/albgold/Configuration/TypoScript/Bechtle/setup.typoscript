@@ -1,0 +1,109 @@
+######################
+#### BECHTLE      ####
+######################
+
+
+
+
+
+
+##############
+#### PAGE ####
+##############
+page {
+    includeCSS {
+        themebechtle = EXT:albgold/Resources/Public/Scss/Bechtle/bechtle.scss
+		thememodbechtle = EXT:albgold/Resources/Public/Scss/Bechtle/bechtle_mod.scss
+    }
+
+    includeJSLibs {
+		# - comes from albgld - jquerylib = EXT:albgold/Resources/Public/JavaScript/Dist/Libs/jquery-3.7.0.min.js
+    }
+
+    includeJS {
+
+    }
+
+    includeJSFooterlibs {
+
+    }
+
+    includeJSFooter {
+        # - comes from albgld - scripts = EXT:albgold/Resources/Public/JavaScript/Dist/scripts.js
+    }
+	
+	
+	headerData.2039 = FLUIDTEMPLATE
+	headerData.2039 {
+			file = EXT:albgold/Resources/Private/Templates/Page/MetaHeaderBechtle.html
+			extbase.controllerExtensionName = Albgold
+	}
+	
+}
+
+
+
+
+
+
+plugin.albgold._LOCAL_LANG {
+	.de {
+		copyright.textbefore = Hallole
+		copyright.textafter = ldöfjdkljsfdslkfdklj
+	}
+	en {
+		copyright.textbefore = Hallole
+	}
+}
+
+
+
+# - - - - - - - - - - - - - - - - - - - - - - - - 
+# Mainnavigation
+# - - - - - - - - - - - - - - - - - - - - - - - -
+page.10.dataProcessing.10 {
+	entryLevel = 2
+	levels = 4
+}
+
+
+
+
+
+
+
+
+
+
+[traverse(page, "uid") in [203]]
+	lib.headerSearch = TEXT
+	lib.headerSearch.value = &nbsp;
+[end]
+
+# - - - - - - - - - - - - - - - - - - - - - - - - 
+# Indexed Search Settings
+# - - - - - - - - - - - - - - - - - - - - - - - - 
+# find here: EXT:albgold/Configuration/TypoScript/Setup/indexedsearch.typoscript
+
+
+
+
+
+
+
+
+
+
+
+
+# - - - - - - - 
+# Address
+# - - - - - - - 
+
+plugin.tx_ttaddress.settings.pages = 21
+plugin.tx_ttaddress.settings.singlePid = 22
+
+
+
+
+

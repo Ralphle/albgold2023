@@ -1,0 +1,9 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:form action="search" method="post" id="tx_indexedsearch" pageUid="{settings.targetPid}">
+	<div class="input-group">
+		<f:form.textfield name="search[sword]" value="{sword}" id="tx-indexedsearch-searchbox-sword" class="form-control" />
+		<f:comment><f:form.submit name="search[submitButton]" value="{f:translate(key: 'form.submit')}" id="tx-indexedsearch-searchbox-button-submit" class="btn btn-primary" /></f:comment>
+		<button type="submit" name="search[submitButton]" value="{f:translate(key: 'form.submit')}"><bk2k:inlineSvg src="EXT:albgold/Resources/Public/Images/Icons/Albgoldicons/albgold-search-small.svg" height="16" /></button>
+    </div>
+</f:form>
+</html>

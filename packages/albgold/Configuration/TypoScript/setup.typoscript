@@ -1,0 +1,371 @@
+######################
+#### DEPENDENCIES ####
+######################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/setup.typoscript">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:albgold/Configuration/TypoScript/Setup/categories.typoscript">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:albgold/Configuration/TypoScript/Setup/indexedsearch.typoscript">
+
+
+
+
+
+
+
+
+##############
+#### PAGE ####
+##############
+page {
+    includeCSS {
+        theme = EXT:albgold/Resources/Public/Scss/Theme/theme.scss
+		thememod = EXT:albgold/Resources/Public/Scss/Theme/theme_mod.scss
+    }
+
+    includeJSLibs {
+		jquerylib = EXT:albgold/Resources/Public/JavaScript/Dist/Libs/jquery-3.7.0.min.js
+    }
+
+    includeJS {
+
+    }
+
+    includeJSFooterlibs {
+
+    }
+
+    includeJSFooter {
+        albgold_scripts = EXT:albgold/Resources/Public/JavaScript/Dist/scripts.js
+    }
+	
+	
+	headerData.2039 = FLUIDTEMPLATE
+	headerData.2039 {
+			file = EXT:albgold/Resources/Private/Templates/Page/MetaHeader.html
+			extbase.controllerExtensionName = Albgold
+	}
+	
+}
+
+
+
+
+# - - - - - - - - - - - - - - - - - - - - - - - - 
+# Thubnails in main menu
+# - - - - - - - - - - - - - - - - - - - - - - - -
+page.10.dataProcessing.10.dataProcessing {
+	1628754218 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+	1628754218 {
+		as = thumbnail
+		references.fieldName = thumbnail
+	}
+}
+
+
+
+
+
+
+
+
+
+
+# - - - - - - - - - - - - - - - - - - - - - - - - 
+# Service Menu in header
+# - - - - - - - - - - - - - - - - - - - - - - - -
+page.10.dataProcessing.200 < page.10.dataProcessing.1629126321
+page.10.dataProcessing.200 {
+	as = servicenavigation
+	if.isTrue = {$page.theme.servicenavigation.navigationValue}
+	special =  {$page.theme.servicenavigation.navigationType}
+	special.value = {$page.theme.servicenavigation.navigationValue}
+	includeNotInMenu = {$page.theme.servicenavigation.includeNotInMenu}
+	levels = {$page.theme.servicenavigation.levels}
+}
+
+
+
+
+
+
+
+
+# - - - - - - - - - - - - - - - - - - - - - - - - 
+# Search Form in header
+# - - - - - - - - - - - - - - - - - - - - - - - -
+lib.headerSearch = USER
+lib.headerSearch {
+    userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+    extensionName = IndexedSearch
+    pluginName = Pi2
+    vendorName = TYPO3\CMS
+    switchableControllerActions {
+        Search {
+            1 = form
+            2 = search
+        }
+    }
+    features {
+        requireCHashArgumentForActionArguments = 0
+    }
+    view < plugin.tx_indexedsearch.view
+    #view.partialRootPaths.10 = Path/To/Partial/
+    #view.templateRootPaths.10 = Path/To/Template/
+
+    settings =< plugin.tx_indexedsearch.settings
+	settings {
+		displayRules = 0
+		displayAdvancedSearchLink = 0
+		minimalformonly = 1
+	}
+}
+
+
+[traverse(page, "uid") in [30,204,220,203]]
+	lib.headerSearch = TEXT
+	lib.headerSearch.value = &nbsp;
+[end]
+
+# - - - - - - - - - - - - - - - - - - - - - - - - 
+# Indexed Search Settings
+# - - - - - - - - - - - - - - - - - - - - - - - - 
+# find here: EXT:albgold/Configuration/TypoScript/Setup/indexedsearch.typoscript
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# - - - - - - - 
+# Content Element
+# - - - - - - - 
+#
+# <f:cObject typoscriptObjectPath="lib.fluidLoadRecord">123</f:cObject>
+#
+
+
+lib.fluidLoadRecord = RECORDS
+lib.fluidLoadRecord {
+    source.data = current:1
+    source.intval = 1
+    dontCheckPid = 1
+    tables = tt_content
+}
+
+
+
+
+
+
+
+
+
+# - - - - - - - - - - - - - - - - - - - - - - - - 
+# SVG Inline images
+# - - - - - - - - - - - - - - - - - - - - - - - -
+lib.inlineSvg = SVG
+lib.inlineSvg {
+  renderMode = inline
+  src.field = src
+}
+
+
+
+
+
+
+# - - - - - - - - - - - - - - - - - - - - - - - - 
+# Container Elements buepro
+# - - - - - - - - - - - - - - - - - - - - - - - -
+lib.containerContentElement {
+    templateRootPaths {
+        5 = EXT:albgold/Resources/Private/Templates/ContainerElements
+    }
+    partialRootPaths {
+        5 = EXT:albgold/Resources/Private/Partials/ContainerElements
+    }
+}
+
+
+
+
+
+
+
+
+# - - - - - - - 
+# Address
+# - - - - - - - 
+
+plugin.tx_ttaddress.settings.pages = 21
+plugin.tx_ttaddress.settings.singlePid = 22
+
+
+
+
+
+
+
+# - - - - - - - 
+# News
+# - - - - - - - 
+
+plugin.tx_news {
+  settings {
+  	cssFile = 
+  
+  
+    list {
+	  paginate {
+	  	insertAbove = 0
+	  	insertBelow = 1
+	  	itemsPerPage = 12
+	  	maximumNumberOfLinks = 5
+	  }
+	  
+	  media {
+	  	image.maxWidth = 430
+		image.maxHeight = 430
+		 dummyImage = EXT:albgold/Resources/Public/Images/news-default.png
+	  }  
+    }
+	detail {
+		showMetaTags = 1
+		media {
+			image {
+				maxWidth = 624
+				lightbox {
+					rel = lightbox-group-100
+				}
+			}
+			video {
+				maxWidth = 624
+			}
+		}
+	}
+	
+	filter {
+		iconsize = 50
+	}
+	
+	
+  }
+}
+
+
+plugin.tx_news._LOCAL_LANG {
+    default {
+       related-news = More News
+	   related-files = More Info
+	   dateFormat = m-d-Y
+	   back-link = back to overview
+     }
+    de {
+       related-news = Mehr News
+	   related-files = Mehr Info
+	   dateFormat = d. M Y
+	    back-link = zurück zur Übersicht
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - #
+# Powermail sender/reciever contact form
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - #
+plugin.tx_powermail.settings.setup {
+   receiver {
+     overwrite {
+       	senderEmail.value = info@alb-gold.de
+     	senderName.value = ALB-GOLD
+       
+       	replyToEmail.value >
+    	replyToEmail = TEXT
+     	replyToEmail.data = GP:tx_powermail_pi1|field|e_mail
+       
+       	replyToName.value >
+    	replyToName = TEXT
+     	replyToName.data = GP:tx_powermail_pi1|field|name
+     }
+ 	}
+    sender {
+     overwrite {
+       senderEmail.value = info@alb-gold.de
+       senderName.value = ALB-GOLD
+     }
+    }
+}
+
+
+
+page.includeCSS {
+   #datepicker = {$site.theme.base}css/jquery.datetimepicker.css
+}
+
+page.includeJSFooter {
+   #validators = {$site.theme.base}js/validators.js
+}
+
+plugin.tx_powermail {
+     _LOCAL_LANG.default.validationerror_validation.100 = E-Mail und Bestätigung müssen gleich sein
+}
+
+
+
+
+
+
+
+
+
+
+# - - - - - - - - - - - - - - - - -
+# Get field from table TSGet field from table TS
+#
+# Usage: <f:cObject typoscriptObjectPath="lib.getFieldFromTable" data="{s_uid:getVar.item,s_table:'tx_simplelist_domain_model_item',s_field:'title'}"/>
+# - - - - - - - - - - - - - - - - -
+
+lib.getFieldFromTable = COA
+lib.getFieldFromTable {
+	// store field name in register first
+	10 = LOAD_REGISTER
+	10.s_field.field = s_field
+	20 = CONTENT
+	20 {
+		table.field = s_table
+		select {
+			uidInList.field = s_uid
+			// get the page uid from record
+			// simple try, if you don't know the pid ;-)
+			// not really needed here, because we have uidInList value
+			// use next line, if you don't need the pid querypart 
+			// pidInList = 0
+			pidInList.cObject = TEXT
+			pidInList.cObject {
+				dataWrap = DB:{field:s_table}:{field:s_uid}:pid
+				wrap3 = {|}
+				insertData = 1				
+			}
+		}
+		renderObj = TEXT
+		// here we use the stored field name
+		renderObj.field.dataWrap = {register:s_field}		
+	}
+}

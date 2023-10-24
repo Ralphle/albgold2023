@@ -1,0 +1,96 @@
+@import "../Scss/Theme/variables";
+
+
+@font-face {
+	font-display: swap;
+    font-family: "DINWeb-Light";
+    font-style: normal;
+    font-weight: normal;
+    src: url("../Fonts/din/DINWeb-Light.eot?#iefix") format("embedded-opentype"), url("../Fonts/din/DINWeb-Light.woff") format("woff");
+}
+@font-face {
+	font-display: swap;
+    font-family: "DINWeb";
+    font-style: normal;
+    font-weight: normal;
+    src: url("../Fonts/din/DINWeb.eot?#iefix") format("embedded-opentype"), url("../Fonts/din/DINWeb.woff") format("woff");
+}
+
+@font-face {
+	font-display: swap;
+    font-family: "DINWeb-Bold";
+    font-style: normal;
+    font-weight: normal;
+    src: url("../Fonts/din/DINWeb-Bold.eot?#iefix") format("embedded-opentype"), url("../Fonts/din/DINWeb-Bold.woff") format("woff");
+}
+
+/* roboto-300 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  src: url('../Fonts/roboto-v30-latin/roboto-v30-latin-300.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* roboto-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../Fonts/roboto-v30-latin/roboto-v30-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* roboto-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../Fonts/roboto-v30-latin/roboto-v30-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+@import "_albgold_ckeditot_shared";
+
+
+body {
+	font-family: "DINWeb", Roboto, sans-serif;
+	font-weight: 300;
+	font-size: 16px;
+}
+
+.text-white {
+	color: lightgray !important;
+}
+
+.text-primary {
+	color: $primary !important;
+}
+
+.text-primary {
+	color: $primary !important;
+}
+.text-secondary {
+	color: $secondary !important;
+}
+.text-tertiary {
+	color: $tertiary !important;
+}
+.text-quaternary {
+	color: $quarternary !important;
+}
+a.download:before {
+	content: " ";
+	text-align: center;
+	@include whitelink();
+		width: 36px;
+		height: 36px;
+		border-radius: 50%;
+		display: inline-block;
+		margin-right: $def-padding / 3;
+		vertical-align: middle;
+		background: url("data:image/svg+xml;charset=UTF-8,<svg  fill='%23FFFFFF' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'><path d='m7.6 11.79c.47-.46 1.21-.45 1.67.01l5.55 5.63v-16.24c0-.65.53-1.19 1.19-1.19s1.19.53 1.19 1.19v16.25l5.55-5.63c.44-.48 1.19-.5 1.66-.06.48.44.5 1.19.06 1.66-.02.02-.03.04-.05.05l-7.57 7.69c-.45.46-1.19.48-1.66.02 0 0-.02-.02-.02-.02l-7.57-7.69c-.46-.46-.46-1.21 0-1.67h.02zm22.03 13.49c.02 3.69-2.95 6.7-6.64 6.72h-13.99c-3.69-.02-6.66-3.03-6.64-6.72v-7.79c0-.65.53-1.19 1.19-1.19s1.19.53 1.19 1.19v7.79c-.02 2.38 1.89 4.32 4.27 4.35h13.99c2.38-.03 4.29-1.97 4.27-4.35v-7.79c0-.65.53-1.19 1.19-1.19s1.19.53 1.19 1.19v7.79z'></path></svg>");
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: 24px;
+		background-color: $gold;
+}

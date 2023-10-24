@@ -1,0 +1,196 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	  xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
+	  data-namespace-typo3-fluid="true">
+
+<f:layout name="General" />
+
+	
+<f:section name="content">
+	<f:comment>
+			<f:debug>{_all}</f:debug>
+	</f:comment>
+
+	<f:if condition="{categories}">
+		<f:then>
+			<f:if condition="{settings.templateLayout}==12">
+				<f:then>
+					<div class="news-filter">
+					
+						<f:comment>
+							<f:debug>{overwriteDemand}</f:debug>
+						</f:comment>						
+						
+						<f:comment>Search News</f:comment>
+						<f:render section="categoryselect" arguments="{categories:categories,overwriteDemand:overwriteDemand,categoryUsageCountOn:0}" />
+
+						<f:comment>Datemenu News</f:comment>
+						<f:if condition="{pageData.uid} == 45">
+							<f:cObject typoscriptObjectPath="lib.fluidLoadRecord">8509</f:cObject>
+						</f:if>
+						
+						<f:comment>Datemenu Events</f:comment>
+						<f:if condition="{pageData.uid} == 46">
+							<f:cObject typoscriptObjectPath="lib.fluidLoadRecord">8513</f:cObject>
+						</f:if>
+
+						<f:comment>Title-Search</f:comment>
+						<form class="textfilter">
+							<button type="submit" title="search" class="fill-color-grey"><bk2k:inlineSvg src="EXT:albgold/Resources/Public/Images/Icons/Albgoldicons/albgold-search.svg" height="{settings.filter.iconsize}" width="{settings.filter.iconsize}" /></button>
+							
+
+							<f:if condition="{overwriteDemand.title}">
+								<f:then>
+									<f:variable name="placeholdersearch">{overwriteDemand.title}</f:variable>
+								</f:then>
+								<f:else>
+									<f:variable name="placeholdersearch">{f:translate(key: 'searchlabel', extensionName: 'albgold')}</f:variable>
+								</f:else>							
+							</f:if>
+							
+
+							
+							<f:form.textfield name="tx_news_pi1[overwriteDemand][title]" id="field_title" placeholder="{placeholdersearch}" value="" />
+						</form>
+
+						<f:comment>Reset-Button</f:comment>
+						<f:render section="reset" />
+					
+					</div>
+				</f:then>
+
+				
+				
+				<f:else if="{settings.templateLayout}==13">	
+					<div class="news-filter">
+					<f:comment>Search Event</f:comment>
+					
+					</div>
+				</f:else>
+				
+				<f:else>
+					<f:comment>Default List</f:comment>
+					<f:render section="categoryTree" arguments="{categories:categories,overwriteDemand:overwriteDemand}" />
+				</f:else>
+			</f:if>
+		</f:then>
+		<f:else>
+			<f:translate key="list_nocategoriesfound" />
+		</f:else>
+	</f:if>
+</f:section>
+
+	
+	
+
+
+	
+	
+	
+
+	
+	
+	
+	
+<f:section name="categoryselect">
+
+	<div class="catselect">
+	
+	<ul>
+		<li class="title selected-id-{overwriteDemand.categories}">
+				<span class="icon fill-color-grey"><bk2k:inlineSvg src="EXT:albgold/Resources/Public/Images/Icons/Albgoldicons/albgold-smiley.svg" height="{settings.filter.iconsize}" width="{settings.filter.iconsize}" /></span>
+				<span class="label text-color-grey"><f:translate key='allCategories' extensionName='albgold' /></span>
+			</span>			
+
+			<ul class="menu">
+			<f:for each="{categories}" as="category">
+					{n:category.count(categoryUid:category.item.uid) -> f:variable(name: 'categoryUsageCount')}				
+				<li>					
+					<f:if condition="{category.item.uid} == {overwriteDemand.categories}">
+						<f:then>
+							<f:link.page title="{category.item.title}" class="active text-color-{category.item.catcolor} item-id-{category.item.uid}" pageUid="{settings.listPid}"
+								additionalParams="{tx_news_pi1:{overwriteDemand:{categories: category.item.uid}}}">
+								
+								<span  class="icon fill-color-{category.item.catcolor}">
+									<bk2k:inlineSvg image="{category.item.images.0.originalResource}" height="{settings.filter.iconsize}" width="{settings.filter.iconsize}" />
+								</span>	
+
+								<span class="label text-color-{category.item.catcolor}">{category.item.title}</span>
+							</f:link.page>
+						</f:then>
+						<f:else>
+							<f:link.page title="{category.item.title}" pageUid="{settings.listPid}" class="item-id-{category.item.uid}" 
+								additionalParams="{tx_news_pi1:{overwriteDemand:{categories: category.item.uid}}}">		
+								
+								<span  class="icon fill-color-{category.item.catcolor}">
+									<bk2k:inlineSvg image="{category.item.images.0.originalResource}" height="{settings.filter.iconsize}" width="{settings.filter.iconsize}" />		
+								</span>
+								<span  class="label text-color-{category.item.catcolor}">{category.item.title}</span>
+							</f:link.page>
+						</f:else>
+					</f:if>
+
+					<f:if condition="{categoryUsageCount} && {categoryUsageCountOn}">({categoryUsageCount})</f:if>
+
+				</li>
+			</f:for>
+				<li class="allLink"><f:link.page pageUid="{data.uid}">
+					<span class="icon fill-color-grey"><bk2k:inlineSvg src="EXT:albgold/Resources/Public/Images/Icons/Albgoldicons/albgold-smiley.svg" height="{settings.filter.iconsize}" width="{settings.filter.iconsize}" /></span>
+					<span class="label text-color-grey"><f:translate key='allCategories' extensionName='albgold' /></span>
+				</f:link.page></span>
+			</li>
+		</ul>
+		</li>
+	</ul>
+	</div>
+
+	
+</f:section>
+	
+	
+	
+	
+	
+	
+	
+<f:section name="reset">
+	<f:link.page pageUid="{data.uid}" class="reset-button" title="<f:translate key='reset' extensionName='albgold' />"><bk2k:inlineSvg src="EXT:albgold/Resources/Public/Images/Icons/Albgoldicons/albgold-cancel.svg" height="36" width="36" /></f:link.page>
+</f:section>	
+		
+	
+
+
+
+	
+
+<f:section name="categoryTree">
+	<ul>
+		<f:for each="{categories}" as="category">
+			{n:category.count(categoryUid:category.item.uid) -> f:variable(name: 'categoryUsageCount')}
+			<li>
+				<f:if condition="{category.item.uid} == {overwriteDemand.categories}">
+					<f:then>
+						<f:link.page title="{category.item.title}" class="active" pageUid="{settings.listPid}"
+							additionalParams="{tx_news_pi1:{overwriteDemand:{categories: category.item.uid}}}">{category.item.title}
+						</f:link.page>
+					</f:then>
+					<f:else>
+						<f:link.page title="{category.item.title}" pageUid="{settings.listPid}"
+							additionalParams="{tx_news_pi1:{overwriteDemand:{categories: category.item.uid}}}">{category.item.title}
+						</f:link.page>
+					</f:else>
+				</f:if>
+
+				<f:if condition="{categoryUsageCount}">({categoryUsageCount})</f:if>
+
+				<f:if condition="{category.children}">
+					<f:render section="categoryTree" arguments="{categories: category.children,overwriteDemand:overwriteDemand}" />
+				</f:if>
+			</li>
+		</f:for>
+	</ul>
+</f:section>
+
+
+
+</html>
+	

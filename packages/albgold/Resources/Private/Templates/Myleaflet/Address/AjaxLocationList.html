@@ -1,0 +1,64 @@
+
+<f:comment>
+<h1>Location List</h1>
+</f:comment>
+
+<script type="text/javascript">
+	maxPage = Math.ceil({locationsCount}/{settings.resultLimit});
+</script>
+
+<div class="searchResultContainer">
+	<div class="ResultHeader row">
+		<div><f:translate key="myleaflet.dealer" extensionName="albgold" /></div>
+		<div><f:translate key="myleaflet.street" extensionName="albgold" /></div>
+		<div><f:translate key="myleaflet.city" extensionName="albgold" /></div>
+		<div><f:translate key="myleaflet.distance" extensionName="albgold" /></div>
+		<div><f:translate key="myleaflet.show" extensionName="albgold" /></div>
+	</div>
+	
+	
+	<f:for each="{locations}" as="location" iteration="iter">
+		<article class="searchResultItem row">
+			<div><strong>{location.company}</strong></div>
+			<div><f:format.raw>{location.address}</f:format.raw></div>
+			<div><span>{location.zip}</span> <span>{location.city}</span></div>
+			<div>{labels.distance}: <f:format.number decimals="2">{location.distance}</f:format.number> km</div>
+			<div class="maplink"><a href="#" onClick="map.flyTo([{location.latitude},{location.longitude}], 18); scrollto('#map');">
+				<bk2k:inlineSvg src="EXT:albgold/Resources/Public/Images/Icons/Albgoldicons/albgold-locationpin.svg" height="20" width="20" />&nbsp;
+				<f:translate key="myleaflet.showonMap" extensionName="albgold" />
+				</a>
+			</div>
+			
+			
+			
+			<f:comment>
+			<f:for each="{location.images}" as="image">
+				<div><img src="/fileadmin/{image.originalResource.originalFile.identifier}"  width="50" alt=""/></div>			
+			</f:for>
+
+			<div>
+				<div><a href="/index.php?id={settings.detailsPageId}&tx_myleaflet_singleview[action]=show&tx_myleaflet_singleview[locationUid]={location.uid}">Karte</a></div>
+				<a href="#" onClick="markersArray['us70004pp5'].openPopup()"><strong>{location.name}</strong></a>
+			</div>				
+			<div class="categories">{location.categories}</div>			
+				
+				
+			<div>{location.phone}</div>
+			<div>{location.email}</div>			
+				<div><f:format.htmlentitiesDecode>{location.description}</f:format.htmlentitiesDecode></div>
+				<div><f:format.raw>{location.infoWindowDescription}</f:format.raw></div>
+			</f:comment>
+			
+			
+		</article>
+	</f:for>
+</div>
+<div class="clearer"></div>
+
+
+
+
+
+
+
+
